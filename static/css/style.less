@@ -23,16 +23,7 @@
     -moz-osx-font-smoothing: grayscale;
 }
 
-
-body {
-    margin: 0;
-    font-family: 'Open sans', sans-serif;
-    color: #3a3a3a;
-    @media all and (max-width: 1140px) {
-        font-size: 0.9em;
-    }
-}
-
+@responsive-xl: 1180px;
 @responsive-lg: 980px;
 @responsive-md: 800px;
 @responsive-sm: 570px;
@@ -46,6 +37,15 @@ body {
 @dark-green: #15b18d;
 @green: #25c361;
 @yellow: #eeba0c;
+
+body {
+    margin: 0;
+    font-family: 'Open sans', sans-serif;
+    color: #3a3a3a;
+    @media all and (max-width: @responsive-xl) {
+        font-size: 0.9em;
+    }
+}
 
 h1 { font-size: 2.5em; }
 h2 { font-size: 2.125em; }
@@ -477,6 +477,22 @@ body.two-col & {
     .side-col {
         width: 28em;
         float: right;
+    }
+    @media all and (max-width: @responsive-xl) {
+        .page-wrapper {
+            width: 42.5em;
+        }
+        .content-col, .side-col {
+            width: 100%;
+        }
+    }
+    @media all and (max-width: 43.75em) {
+        .page-wrapper { width: 100%; }
+        .content-col {
+            width: 100%;
+            box-sizing: border-box;
+            padding: 0 1.25em;
+        }
     }
 }
 
