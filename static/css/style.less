@@ -33,7 +33,7 @@ body {
 
 @responsive-lg: 980px;
 @responsive-md: 800px;
-@responsive-sm: 500px;
+@responsive-sm: 570px;
 
 @dark: #3a3a3a;
 @line: #d0d1c6;
@@ -90,6 +90,10 @@ p { line-height: 1.5; }
 .bg-img {
     .absolute-center;
     z-index: -200;
+    min-height: 100%;
+    min-width: 100%;
+    width: auto !important;
+    height: auto !important;
 }
 
 .bg-with-hover(@c) {
@@ -381,6 +385,7 @@ label[for='primary-nav'] {
     }
     .jumbotron-callout {
         .absolute-center;
+        width: 90vw;
         text-align: center;
         font-weight: normal;
         color: #fff;
@@ -390,9 +395,8 @@ label[for='primary-nav'] {
         }
     }
     .link-options {
-        margin-bottom: -4em;
-        margin-top: 4em;
-        width: 800px;
+        margin: 4em auto -4em auto;
+        width: 80vw;
         a {
             display: inline-block;
             color: #fff;
@@ -401,6 +405,9 @@ label[for='primary-nav'] {
             &:not(:first-of-type) {
                 border-left: 2px solid @light-grey;
             }
+        }
+        @media all and (max-width: @responsive-md) {
+            a { padding: 0.75em 0.5em; }
         }
     }
     .donation-panel {
@@ -541,6 +548,9 @@ label[for='primary-nav'] {
         .column-50 {
             width: 100%;
         }
+        .banner {
+            padding: 6em 4em;
+        }
     }
 }
 
@@ -564,6 +574,17 @@ label[for='primary-nav'] {
             background: @light-grey;
         }
     }
+    @media all and (max-width: @responsive-md) {
+        .column-50 {
+            display: block;
+            width: 100%;
+            height: auto;
+            padding: 4em 2em;
+            &:first-of-type {
+                margin-top: 4em;
+            }
+        }
+    }
 }
 
 .banner-strip {
@@ -578,6 +599,35 @@ label[for='primary-nav'] {
         padding-bottom: 4em;
         &:not(:first-of-type) {
             border-left: 2px solid @light-grey;
+        }
+    }
+    @media all and (max-width: @responsive-lg) {
+        display: block;
+        .banner {
+            display: block;
+            width: 50%;
+            float: left;
+            padding: 4em 2em;
+            &:not(:first-of-type) {
+                border: none;
+            }
+            &:nth-of-type(2n) {
+                &:not(:first-of-type) {
+                    border-left: 2px solid @light-grey;
+                }
+            }
+            &:nth-of-type(-n+2) {
+                border-bottom: 2px solid @light-grey;
+            }
+        }
+    }
+    @media all and (max-width: @responsive-sm){
+        .banner {
+            width: 100%;
+            border: none !important;
+            &:not(:last-of-type) {
+                border-bottom: 2px solid @light-grey !important;
+            }
         }
     }
 }
@@ -616,5 +666,12 @@ label[for='primary-nav'] {
         text-align: center;
         padding-top: 1.25em;
         border-top: 2px solid @line;
+    }
+    @media all and (max-width: @responsive-lg) {
+        .pull-left, .pull-right {
+            float: none;
+            text-align: center;
+        }
+        a { font-weight: bold; }
     }
 }
