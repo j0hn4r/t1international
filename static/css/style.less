@@ -1,3 +1,5 @@
+@import (inline) "selectric.css";
+
 @font-face {
     font-family: 'icomoon';
     src:    url('../fonts/icomoon.eot?173rwh');
@@ -60,6 +62,8 @@ p { line-height: 1.5; }
     display: none;
 }
 
+.clear-fix { clear: both; }
+
 .pull-left { float: left; }
 .pull-right { float: right; }
 
@@ -88,6 +92,31 @@ p { line-height: 1.5; }
     &.small { font-size: 1.125em; padding: 1em; }
     @media all and (max-width: @responsive-sm) {
         font-size: 1.125em;
+    }
+}
+
+input:not([type="checkbox"]) {
+    appearance: none;
+    font-family: 'Open sans', sans-serif;
+    border: none;
+    box-sizing: border-box;
+    padding: 0.5em 1em;
+    font-size: 1.25em;
+    border-radius: 0.25em;
+    border: 2px solid @line;
+    &:focus { outline: none; }
+    &::-webkit-input-placeholder {
+        color: @dark;
+    }
+}
+
+input[type="submit"] {
+    background: @red;
+    color: #fff;
+    border: none;
+    &:hover {
+        cursor: pointer;
+        background: lighten(@red, 10%);
     }
 }
 
@@ -164,31 +193,13 @@ p { line-height: 1.5; }
     h3 { margin-right: 0.75em; }
     h3, input { display: inline-block; vertical-align: middle; }
     input {
-        appearance: none;
-        font-family: 'Open sans', sans-serif;
-        border: none;
-        box-sizing: border-box;
         height: 60px;
-        padding: 0.5em 1em;
-        font-size: 1.25em;
         margin-left: 0.5em;
-        border-radius: 0.25em;
-        border: 2px solid @line;
-        &:focus { outline: none; }
-        &::-webkit-input-placeholder {
-            color: @dark;
-        }
         &[type="email"] {
             width: 15em;
         }
         &[type="submit"] {
-            background: @red;
-            color: #fff;
             border: none;
-            &:hover {
-                cursor: pointer;
-                background: lighten(@red, 10%);
-            }
         }
     }
     @media all and (max-width: @responsive-lg) {
@@ -286,6 +297,7 @@ p { line-height: 1.5; }
                 text-decoration: none;
                 display: block;
                 padding: 0.75em 1em;
+                &.active { color: @blue; }
             }
         }
         .logo {
@@ -380,9 +392,27 @@ p { line-height: 1.5; }
             text-decoration: none;
             color: #fff;
             padding: 0 0.5em;
+            &.active {
+                color: @blue;
+            }
         }
         &:not(:first-of-type) {
             border-left: 2px solid darken(@dark,10%);
+        }
+    }
+    @media all and (max-width: @responsive-md) {
+        padding: 0;
+        li {
+            display: block;
+            .bg-with-hover(@dark);
+            &:not(:first-of-type) {
+                border-left: none;
+                border-top: 1px solid lighten(@dark, 10%);
+            }
+            a {
+                display: block;
+                padding: 0.75em 0;
+            }
         }
     }
 }
@@ -425,10 +455,28 @@ label[for='primary-nav'] {
 .intro, .content {
     width: 42.5em;
     margin: auto;
-    @media all and (max-width: 43.75em) {
-        width: 100%;
-        box-sizing: border-box;
-        padding: 0 1.25em;
+    body.single-col & {
+        @media all and (max-width: 43.75em) {
+            width: 100%;
+            box-sizing: border-box;
+            padding: 0 1.25em;
+        }
+    }
+}
+
+body.two-col & {
+    .page-wrapper {
+        width: 70em;
+        margin: auto;
+        overflow: hidden;
+    }
+    .content-col {
+        width: 40em;
+        float: left;
+    }
+    .side-col {
+        width: 28em;
+        float: right;
     }
 }
 
@@ -455,6 +503,19 @@ label[for='primary-nav'] {
                 top: 0.5em;
                 background: @blue;
             }
+        }
+    }
+    ol {
+        .remove-list-style;
+        position: relative;
+        li {
+            counter-increment: step-counter;
+            &:before {
+                content: counter(step-counter);
+                color: @blue;
+                display: inline;
+            }
+            h4 { display: inline-block; }
         }
     }
 }
@@ -486,11 +547,16 @@ label[for='primary-nav'] {
     body.page & {
         min-height: 320px;
         max-height: 400px;
-        margin-bottom: 4.5em;
-        h1 {
-            width: 12.75em;
-            margin: auto;
-            font-size: 3.750em;
+        @media all and (min-width: (@responsive-md + 1)) {
+            h1 {
+                width: 12.75em;
+                margin: auto;
+                font-size: 3.750em;
+            }
+        }
+        @media all and (max-width: @responsive-sm) {
+            height: 280px;
+            h1 { font-size: 2em; }
         }
     }
     .image-holder {
@@ -601,6 +667,85 @@ label[for='primary-nav'] {
                 }
             }
         }
+    }
+}
+
+.form {
+    background: @light-grey;
+    font-size: 1.125em;
+    padding: 3em 1em 1.5em 1em;
+    h3 {
+        font-size: 1.55em;
+        &:first-of-type { margin: 0 0 0.5em 0.5em; }
+    }
+    .type-selector {
+        overflow: hidden;
+        border-top: 2px solid @line;
+        border-bottom: 2px solid @line;
+        a {
+            display: inline-block;
+            width: 50%;
+            float: left;
+            box-sizing: border-box;
+            padding: 0.25em 1em;
+            margin: 0.5em 0;
+            text-decoration: none;
+            color: @dark;
+            text-align: center;
+            font-weight: bold;
+            &.active { color: @blue; }
+            &:first-of-type {
+                border-right: 2px solid @line;
+            }
+        }
+    }
+    label, input { width: 100%; }
+    label {
+        display: block;
+        margin: 0.75em 0 0.25em 0.778em;
+        font-weight: bold;
+        &.required:after {
+            content: "*";
+            color: @blue;
+            margin-left: 0.25em;
+        }
+        &[for=optin] {
+            margin-left: 0;
+            width: calc(100% ~"-" 25px);
+            float: right;
+            font-weight: normal;
+        }
+    }
+    .selectric {
+        p {
+            font-size: 1em;
+            font-family: 'Open sans', sans-serif;
+        }
+    }
+    .selectric-open, .selectric-hover {
+        .selectric {
+            background: #fff;
+            border-color: @line;
+        }
+    }
+    .selectric-items {
+        .selected { background: @blue; color: #fff; }
+        background: #fff;
+        ul, li { font-size: 1em; }
+    }
+    input {
+        font-size: 1em;
+        padding: 0.5em 0.778em;
+    }
+    input[type="checkbox"] {
+        float: left;
+        display: inline-block;
+        width: auto;
+        margin-top: 1.125em;
+    }
+    .btn {
+        margin-top: 0.5em;
+        font-size: 1.556em;
     }
 }
 
