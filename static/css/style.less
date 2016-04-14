@@ -744,9 +744,17 @@ body.two-col & {
             border-color: @line;
         }
     }
+    .selectric-open {
+        .selectric {
+            border-bottom-left-radius: 0;
+            border-bottom-right-radius: 0;
+        }
+    }
     .selectric-items {
+        width: calc(100% ~"-" 2px) !important;
         .selected { background: @blue; color: #fff; }
         background: #fff;
+        li { border-top: none; }
         ul, li { font-size: 1em; }
     }
     input {
