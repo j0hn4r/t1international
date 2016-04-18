@@ -1,0 +1,17 @@
+/htdocs/media
+/htdocs/static
+/pyenv
+
+# Python
+*.py[co]
+
+# Coverage
+.coverage
+
+# Grunt
+/node_modules
+npm-debug.log
+static/css
+
+# Database
+*.dump
