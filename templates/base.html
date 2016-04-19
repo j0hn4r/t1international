@@ -18,6 +18,14 @@
     <body>
         {% glitter_startbody %}
 
+        <header class="head">
+            {% include "includes/header.html" %}
+        </header>
+
         {% block main %}{% endblock %}
+
+        <footer class="foot">
+            {% include "includes/footer.html" %}
+        </footer>
     </body>
 </html>
