@@ -67,6 +67,7 @@ THIRD_PARTY_APPS = [
     'glitter.pages',
     'glitter.assets',
     'glitter.blocks.banner',
+    'glitter.blocks.call_to_action',
     'glitter.blocks.form',
     'glitter.blocks.html',
     'glitter.blocks.image',
