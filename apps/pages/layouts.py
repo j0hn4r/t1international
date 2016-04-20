@@ -8,6 +8,7 @@ from glitter.layouts import PageLayout
 class SingleColumn(PageLayout):
     billboard_top = columns.Column(width=1080)
     intro = columns.Column(width=960)
+    billboard_middle = columns.Column(width=1080)
     content = columns.Column(width=960)
     footer = columns.Column(width=960)
 
@@ -23,6 +24,7 @@ class Home(PageLayout):
 
 @templates.attach('glitter_pages.Page')
 class TwoColumn(PageLayout):
+    billboard_top = columns.Column(width=1080)
     content = columns.Column(width=960)
     sidebar = columns.Column(width=480)
     footer = columns.Column(width=960)

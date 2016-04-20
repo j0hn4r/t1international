@@ -1,6 +1,22 @@
 {% extends "glitter/base.html" %}
 
 
+{% block body_class %}page two-col{% endblock body_class %}
+
 {% block main %}
-    {{ columns.content }}
+    <div class="jumbotron">
+        {{ columns.billboard_top }}
+    </div>
+
+    <div class="page-wrapper">
+        <div class="content-col">
+            {{ columns.content }}
+        </div>
+
+        <div class="side-col">
+            {{ columns.sidebar }}
+        </div>
+    </div>
+
+    {{ columns.footer }}
 {% endblock main %}
