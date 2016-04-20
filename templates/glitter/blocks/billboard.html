@@ -1,3 +1,17 @@
-<div class="{{ css_classes }}">
-    {{ object }}
+{% load thumbnail %}
+
+
+<div class="{{ css_classes }} {% if object.background_image %}with-bg-image{% endif %}{% if object.background_colour %}color {{ object.background_colour }}{% endif %}">
+    <div class="billboard-content">
+        {% thumbnail object.background_image.file "600x470" crop="center" as thumb %}
+            <img src="{{ thumb.url }}" class="bg-img">
+        {% endthumbnail %}
+        {% thumbnail object.image.file "300x300" crop="center" as thumb %}
+            <img src="{{ thumb.url }}">
+        {% endthumbnail %}
+        <h3>{{ object.title }}</h3>
+        {% if object.link_text %}
+            <a href="{{ object.link }}" {% if object.new_window %} target="_blank"{% endif %}>{{ object.link_text|default:'Read more' }}</a>
+        {% endif %}
+    </div>
 </div>

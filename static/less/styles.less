@@ -869,6 +869,58 @@ body.two-col & {
     }
 }
 
+.glitter_page_blocktype_billboard {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0.75em;
+    display: table;
+    vertical-align: middle;
+    text-align: center;
+    position: relative;
+    color: #fff;
+    .billboard-content {
+        display: table-cell;
+        height: 100%;
+    }
+    &.color:before {
+        content: '';
+        display: block;
+        position: absolute;
+        top: -100%; right: 0; bottom: -100%; left: 0;
+        z-index: -200;
+    }
+    &.blue:before { background: @blue; }
+    &.red:before { background: @red; }
+    &.purple:before { background: @purple; }
+    &.dark-green:before { background: @dark-green; }
+    &.green:before { background: @green; }
+    &.yellow:before { background: @yellow; }
+    a { .btn; font-size: 1.125em; }
+    h3 { margin: 0.5em 0 0.75em 0; }
+    img:not(.bg-img) {
+        display: inline-block;
+        border-radius: 50%;
+        width: 175px;
+        height: 175px;
+        position: relative;
+        overflow: hidden;
+        @media all and (max-width: @responsive-lg) {
+            width: 135px;
+            height: 135px;
+        }
+    }
+    p:last-of-type {
+        .btn;
+        font-size: 1.125em;
+        margin-top: 0.25em;
+    }
+    @media all and (max-width: @responsive-lg) {
+        .billboard-content {
+            padding: 4em 2em;
+        }
+    }
+}
+
 .glitter_page_blocktype_bannerblock {
     a {
         display: inline-block;
@@ -926,14 +978,19 @@ body.two-col & {
 .image-banner-grid {
     display: table;
     width: 100%;
+    height: 100%;
     overflow: hidden;
     table-layout: fixed;
-    .glitter_page_blocktype_bannerblock a { padding: 0 1em; }
+    .glitter_page_blocktype_billboard, .glitter_page_blocktype_bannerblock a {
+        padding: 0 1em;
+    }
     .column-25, .column-50, .column-75 {
         display: table-cell;
         vertical-align: middle;
         overflow: hidden;
+        position: relative;
     }
+
     img {
         width: 100%;
         vertical-align: top;
@@ -957,6 +1014,12 @@ body.two-col & {
         .glitter_page_blocktype_bannerblock a {
             padding: 6em 4em;
         }
+    }
+}
+
+.glitter-active ~ .image-banner-grid {
+    .column-25, .column-50, .column-75 {
+        vertical-align: top;
     }
 }
 
