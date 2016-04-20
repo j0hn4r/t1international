@@ -526,6 +526,7 @@ body.two-col & {
     }
     ul {
         .remove-list-style;
+        line-height: 1.5;
         li {
             margin-bottom: 1em;
             padding-left: 2em;
@@ -997,6 +998,10 @@ body.two-col & {
         .column-25 {
             width: 100%;
             float: left;
+            .glitter_page_blocktype_imageblock {
+                width: 50% !important;
+                float: left;
+            }
             .half-height {
                 width: 50%;
                 float: left;
@@ -1007,6 +1012,13 @@ body.two-col & {
         }
         .glitter_page_blocktype_bannerblock a {
             padding: 6em 4em;
+        }
+    }
+    @media all and (max-width: @responsive-sm) {
+        .column-25 {
+            .glitter_page_blocktype_imageblock {
+                width: 100% !important;
+            }
         }
     }
 }
