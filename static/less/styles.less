@@ -3,6 +3,15 @@
 @import (inline) "selectric.css";
 
 @font-face {
+    font-family: 'Pimpernel';
+    src: url('../fonts/impernel.eot');
+    src: url('../fonts/pimpernel.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/pimpernel.woff2') format('woff2'),
+        url('../fonts/pimpernel.woff') format('woff'),
+        url('../fonts/pimpernel.ttf') format('truetype');
+    }
+
+@font-face {
     font-family: 'icomoon';
     src:    url('../fonts/icomoon.eot?173rwh');
     src:    url('../fonts/icomoon.eot?173rwh#iefix') format('embedded-opentype'),
@@ -62,7 +71,7 @@ p { line-height: 1.5; }
 }
 
 .hidden {
-    display: none !important;
+    display: none;
 }
 
 .clear-fix { clear: both; }
@@ -210,6 +219,7 @@ input[type="submit"] {
             width: 6em;
         }
     }
+    .hidden { display: none !important; }
     @media all and (max-width: @responsive-xl) {
         h3 { width: 100%; }
     }
@@ -482,14 +492,23 @@ label[for='primary-nav'] {
 body.two-col & {
     .page-wrapper {
         overflow: hidden;
+        max-width: 85em;
+        margin: auto;
     }
     .content-col {
         width: calc(100% ~"-" 28em);
         float: left;
+        box-sizing: border-box;
+        padding: 2em 20px;
     }
     .side-col {
         width: 28em;
         float: right;
+    }
+    @media all and (max-width: @responsive-xl) {
+        .content-col, .side-col {
+            width: 100%;
+        }
     }
 }
 
@@ -498,7 +517,14 @@ body.two-col & {
 .glitter_page_blocktype_redactor {
     margin: 3em 0 2em 0;
     font-size: 1.125em;
-    h3 { font-size: 1.55em; }
+    h3, h5 { font-size: 1.55em; }
+    h5 {
+        color: @blue;
+        margin: 0em;
+        + p {
+            margin: 0.25em 0 1.5em 0;
+        }
+    }
     ul {
         .remove-list-style;
         li {
@@ -518,6 +544,21 @@ body.two-col & {
             }
         }
     }
+    blockquote {
+        margin: 0;
+        font-family: 'Pimpernel';
+        background: @blue;
+        color: #fff;
+        font-size: 2.625em;
+        text-align: center;
+        padding: 0.762em;
+        @media all and (min-width: (@responsive-md + 1)) {
+            body.single-col & {
+                width: calc(100% ~"+" 4.571em);
+                margin-left: -2.286em;
+            }
+        }
+    }
     ol {
         .remove-list-style;
         position: relative;
@@ -529,6 +570,56 @@ body.two-col & {
                 display: inline;
             }
             h4 { display: inline-block; }
+        }
+    }
+}
+
+.faq-block {
+    ul { .remove-list-style; }
+    li {
+        padding: 1.5em 0;
+        position: relative;
+        &:not(:first-of-type) {
+            border-top: 2px solid @light-grey;
+        }
+        p {
+            margin-bottom: 0;
+
+        }
+        .status:after {
+            .icon;
+            content: '\e906';
+            display: inline-block;
+            background: @light-grey;
+            border-radius: 0.25em;
+            position: absolute;
+            top: 1.175em;
+            right: 0;
+            width: 30px;
+            height: 30px;
+            text-align: center;
+            font-size: 1em;
+            line-height: 2.125;
+        }
+    }
+    label {
+        font-size: 1.5em;
+        color: @blue;
+        font-weight: bold;
+        display: block;
+        padding-right: 2em;
+        &:hover { cursor: pointer; }
+    }
+    input[type=checkbox]:checked + p {
+        display: block;
+        + .status:after { content: '\e911'; }
+    }
+    @media all and (min-width: (@responsive-lg + 1)) {
+        li {
+            width: calc(100% ~"+" 20px);
+            box-sizing: border-box;
+            margin-left: -20px;
+            padding-left: 20px;
         }
     }
 }
@@ -782,7 +873,7 @@ body.two-col & {
     a {
         display: inline-block;
         text-align: center;
-        padding: 2em 1em 0 1em;
+        padding: 0.75em;
         text-decoration: none;
         color: @dark;
         h3 {
@@ -798,7 +889,7 @@ body.two-col & {
             height: 175px;
             position: relative;
             overflow: hidden;
-            @media all and (max-width: 1140px) {
+            @media all and (max-width: @responsive-lg) {
                 width: 135px;
                 height: 135px;
             }
@@ -809,13 +900,20 @@ body.two-col & {
             margin-top: 0.25em;
         }
     }
+    #glitter_column_sidebar & {
+        background: @blue;
+        text-align: center;
+        a {
+            color: #fff;
+        }
+    }
     body.page #glitter_column_footer & {
         position: relative;
         &:after {
             content: "";
             display: block;
             height: 2px;
-            width: calc(100% ~"-" 40px);
+            width: calc(100vw ~"-" 55px);
             background: @line;
             position: absolute;
             bottom: 0;
@@ -827,6 +925,7 @@ body.two-col & {
 
 .image-banner-grid {
     display: table;
+    width: 100%;
     overflow: hidden;
     table-layout: fixed;
     .glitter_page_blocktype_bannerblock a { padding: 0 1em; }
@@ -899,7 +998,7 @@ body.two-col & {
         overflow: hidden;
         margin-top: 5em;
         display: table;
-        margin: 4em auto 0 auto;
+        margin: 0 auto 0 auto;
         padding: 2em 0 2em 0;
         width: 100%;
         max-width: 85em;
