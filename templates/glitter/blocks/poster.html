@@ -1,3 +1,13 @@
+{% load thumbnail %}
+
+
 <div class="{{ css_classes }}">
-    {{ object }}
+    {% thumbnail object.background_image.file "1200x750" crop="center" as thumb %}
+        <div class="image-holder">
+            <img src="{{ thumb.url }}" class="bg-img">
+        </div>
+    {% endthumbnail %}
+    <div class="poster-callout">
+        {{ object.content|safe }}
+    </div>
 </div>

@@ -650,11 +650,33 @@ body.two-col & {
     }
 }
 
+.glitter_page_blocktype_poster {
+    .image-holder {
+        position: absolute;
+        top: 0; right: 0; bottom: 0; left: 0;
+        overflow: hidden;
+        z-index: -200;
+    }
+    .poster-callout {
+        .absolute-center;
+        top: 45%;
+        width: 90vw;
+        text-align: center;
+        font-weight: normal;
+        color: #fff;
+        span {
+            display: block;
+            margin-top: 0.75em;
+        }
+    }
+
+}
+
 .jumbotron {
     position: relative;
     height: 60vh;
-    min-height: 500px;
-    max-height: 800px;
+    min-height: 430px;
+    max-height: 570px;
     h1,h2,h3 { line-height: 1.175;}
     body.page & {
         min-height: 320px;
@@ -669,39 +691,6 @@ body.two-col & {
         @media all and (max-width: @responsive-sm) {
             height: 280px;
             h1 { font-size: 2em; }
-        }
-    }
-    .image-holder {
-        position: absolute;
-        top: 0; right: 0; bottom: 0; left: 0;
-        overflow: hidden;
-    }
-    .jumbotron-callout {
-        .absolute-center;
-        top: 45%;
-        width: 90vw;
-        text-align: center;
-        font-weight: normal;
-        color: #fff;
-        span {
-            display: block;
-            margin-top: 0.75em;
-        }
-    }
-    .link-options {
-        margin: 4em auto -4em auto;
-        width: 80vw;
-        a {
-            display: inline-block;
-            color: #fff;
-            padding: 1em 1.75em;
-            text-decoration: none;
-            &:not(:first-of-type) {
-                border-left: 2px solid @light-grey;
-            }
-        }
-        @media all and (max-width: @responsive-md) {
-            a { padding: 0.75em 0.5em; }
         }
     }
     .donation-panel {
@@ -762,8 +751,10 @@ body.two-col & {
                         width: 50%;
                         margin-left: 0.6em;
                         color: #fff;
-                        padding-top: 0.725em;
+                        padding: 0;
+                        padding-top: 0.575em;
                         text-align: right;
+                        font-weight: bold;
                     }
                 }
                 label, input[type="text"] {
