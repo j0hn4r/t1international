@@ -62,7 +62,7 @@ p { line-height: 1.5; }
 }
 
 .hidden {
-    display: none;
+    display: none !important;
 }
 
 .clear-fix { clear: both; }
@@ -197,11 +197,21 @@ input[type="submit"] {
         height: 60px;
         margin-left: 0.5em;
         &[type="email"] {
-            width: 15em;
+            width: 12em;
         }
         &[type="submit"] {
             border: none;
+            font-weight: bold;
         }
+    }
+    #minimised-form {
+        display: inline-block;
+        input {
+            width: 6em;
+        }
+    }
+    @media all and (max-width: @responsive-xl) {
+        h3 { width: 100%; }
     }
     @media all and (max-width: @responsive-lg) {
         margin-bottom: 2em;
