@@ -23,3 +23,8 @@ class Billboard(BaseBlock):
     link = models.URLField()
     link_text = models.CharField(max_length=100, blank=True)
     new_window = models.BooleanField('Open link in new window', default=False)
+
+
+class Poster(BaseBlock):
+    background_image = AssetForeignKey('glitter_assets.Image', null=True, blank=True)
+    content = models.TextField()
