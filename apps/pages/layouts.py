@@ -11,6 +11,9 @@ class SingleColumn(PageLayout):
     billboard_middle = columns.Column(width=1080)
     content = columns.Column(width=960)
     footer = columns.Column(width=960)
+    grid_cell_one = columns.Column(width=320)
+    grid_cell_two = columns.Column(width=320)
+    grid_cell_three = columns.Column(width=320)
 
 
 @templates.attach('glitter_pages.Page')
