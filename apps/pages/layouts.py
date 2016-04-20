@@ -18,6 +18,12 @@ class Home(PageLayout):
     billboard_top = columns.Column(width=1080)
     intro_half_one = columns.Column(width=480)
     intro_half_two = columns.Column(width=480)
+    grid_cell_one = columns.Column(width=320)
+    grid_cell_two = columns.Column(width=320)
+    grid_cell_three = columns.Column(width=320)
+    grid_cell_four = columns.Column(width=320)
+    grid_cell_five = columns.Column(width=320)
+    grid_cell_six = columns.Column(width=320)
     content = columns.Column(width=960)
     footer = columns.Column(width=960)
 
