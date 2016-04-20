@@ -481,39 +481,21 @@ label[for='primary-nav'] {
 
 body.two-col & {
     .page-wrapper {
-        width: 70em;
-        margin: auto;
         overflow: hidden;
     }
     .content-col {
-        width: 40em;
+        width: calc(100% ~"-" 28em);
         float: left;
     }
     .side-col {
         width: 28em;
         float: right;
     }
-    @media all and (max-width: @responsive-xl) {
-        .page-wrapper {
-            width: 42.5em;
-        }
-        .content-col, .side-col {
-            width: 100%;
-        }
-    }
-    @media all and (max-width: 43.75em) {
-        .page-wrapper { width: 100%; }
-        .content-col {
-            width: 100%;
-            box-sizing: border-box;
-            padding: 0 1.25em;
-        }
-    }
 }
 
 //////////////////////    DJANGO BLOCKS        /////////////////////
 
-.redactor-block {
+.glitter_page_blocktype_redactor {
     margin: 3em 0 2em 0;
     font-size: 1.125em;
     h3 { font-size: 1.55em; }
@@ -551,10 +533,12 @@ body.two-col & {
     }
 }
 
-.image-block {
+.glitter_page_blocktype_imageblock {
+    figure { margin: 0; }
     img {
         width: 100%;
         height: auto;
+        vertical-align: top;
     }
     @media all and (min-width: (@responsive-md + 1)) {
         body.single-col & {
@@ -564,7 +548,7 @@ body.two-col & {
     }
 }
 
-.call-to-action-block {
+.glitter_page_blocktype_calltoactionblock {
     margin: 4em 0;
     a {
         .btn;
@@ -794,34 +778,50 @@ body.two-col & {
     }
 }
 
-.glitter_page_blocktype_bannerblock a {
-    display: inline-block;
-    text-align: center;
-    padding: 2em 1em 0 1em;
-    text-decoration: none;
-    color: @dark;
-    h3 {
-        margin: 0.5em 0 0.75em 0;
-    }
-    &.with-bg-image {
-        color: #fff;
-    }
-    img {
+.glitter_page_blocktype_bannerblock {
+    a {
         display: inline-block;
-        border-radius: 50%;
-        width: 175px;
-        height: 175px;
-        position: relative;
-        overflow: hidden;
-        @media all and (max-width: 1140px) {
-            width: 135px;
-            height: 135px;
+        text-align: center;
+        padding: 2em 1em 0 1em;
+        text-decoration: none;
+        color: @dark;
+        h3 {
+            margin: 0.5em 0 0.75em 0;
+        }
+        &.with-bg-image {
+            color: #fff;
+        }
+        img {
+            display: inline-block;
+            border-radius: 50%;
+            width: 175px;
+            height: 175px;
+            position: relative;
+            overflow: hidden;
+            @media all and (max-width: 1140px) {
+                width: 135px;
+                height: 135px;
+            }
+        }
+        p:last-of-type {
+            .btn;
+            font-size: 1.125em;
+            margin-top: 0.25em;
         }
     }
-    p:last-of-type {
-        .btn;
-        font-size: 1.125em;
-        margin-top: 0.25em;
+    body.page #glitter_column_footer & {
+        position: relative;
+        &:after {
+            content: "";
+            display: block;
+            height: 2px;
+            width: calc(100% ~"-" 40px);
+            background: @line;
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
     }
 }
 
@@ -894,51 +894,53 @@ body.two-col & {
     }
 }
 
-#glitter_column_footer .glitter_page_blocktype_bannerblock {
-    overflow: hidden;
-    margin-top: 5em;
-    display: table;
-    margin: 4em auto 0 auto;
-    padding: 2em 0 2em 0;
-    width: 100%;
-    max-width: 85em;
-    table-layout: fixed;
-    a {
-        display: table-cell;
-        width: 25%;
-        box-sizing: border-box;
-        &:not(:first-of-type) {
-            border-left: 2px solid @line;
-        }
-    }
-    @media all and (max-width: @responsive-lg) {
-        box-sizing: border-box;
-        display: block;
-        padding: 2em 20px 2em 20px;
+#glitter_column_footer, #glitter_column_billboard_middle {
+    .glitter_page_blocktype_bannerblock {
+        overflow: hidden;
+        margin-top: 5em;
+        display: table;
+        margin: 4em auto 0 auto;
+        padding: 2em 0 2em 0;
+        width: 100%;
+        max-width: 85em;
+        table-layout: fixed;
         a {
-            display: block;
-            width: 50%;
-            float: left;
-            padding: 4em 2em;
+            display: table-cell;
+            width: 25%;
+            box-sizing: border-box;
             &:not(:first-of-type) {
-                border: none;
+                border-left: 2px solid @line;
             }
-            &:nth-of-type(2n) {
+        }
+        @media all and (max-width: @responsive-lg) {
+            box-sizing: border-box;
+            display: block;
+            padding: 2em 20px 2em 20px;
+            a {
+                display: block;
+                width: 50%;
+                float: left;
+                padding: 4em 2em;
                 &:not(:first-of-type) {
-                    border-left: 2px solid @line;
+                    border: none;
+                }
+                &:nth-of-type(2n) {
+                    &:not(:first-of-type) {
+                        border-left: 2px solid @line;
+                    }
+                }
+                &:nth-of-type(-n+2) {
+                    border-bottom: 2px solid @line;
                 }
             }
-            &:nth-of-type(-n+2) {
-                border-bottom: 2px solid @line;
-            }
         }
-    }
-    @media all and (max-width: @responsive-sm){
-        a {
-            width: 100%;
-            border: none !important;
-            &:not(:last-of-type) {
-                border-bottom: 2px solid @line !important;
+        @media all and (max-width: @responsive-sm){
+            a {
+                width: 100%;
+                border: none !important;
+                &:not(:last-of-type) {
+                    border-bottom: 2px solid @line !important;
+                }
             }
         }
     }
@@ -950,8 +952,7 @@ body.two-col & {
     overflow: hidden;
     background: @light-grey;
     padding: 0 20px 2em 20px;
-    body.page & { margin-top: 4.5em; }
-    .subscription-block { border-top: 2px solid @line; }
+    body.home & .subscription-block { border-top: 2px solid @line; }
     p {
         margin: 0;
         display: inline-block;
