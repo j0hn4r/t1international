@@ -19,3 +19,7 @@ class Blockquote(BaseBlock):
 class FAQ(BaseBlock):
     question = models.TextField()
     answer = models.TextField()
+
+
+class SignupFormBlock(BaseBlock):
+    pass
