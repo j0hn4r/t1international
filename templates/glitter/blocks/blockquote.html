@@ -1,7 +1,8 @@
 {% load thumbnail %}
 
-<div class="{{ css_classes }}">
-    <div class="blockquote-content">
-      <p>{{ object }}</p>
+<div class="{{ css_classes }} {{ object.background_color }}">
+    <div>
+        <p>"{{ object.quote }}"</p>
+        <p class="citation">{{ object.citation }}</p>
     </div>
 </div>

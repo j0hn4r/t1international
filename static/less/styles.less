@@ -567,21 +567,6 @@ body.two-col & {
             }
         }
     }
-    blockquote {
-        margin: 0;
-        font-family: 'Pimpernel';
-        background: @blue;
-        color: #fff;
-        font-size: 2.625em;
-        text-align: center;
-        padding: 0.762em;
-        @media all and (min-width: (@responsive-md + 1)) {
-            body.single-col & {
-                width: calc(100% ~"+" 4.571em);
-                margin-left: -2.286em;
-            }
-        }
-    }
     ol {
         .remove-list-style;
         position: relative;
@@ -595,6 +580,36 @@ body.two-col & {
             h4 { display: inline-block; }
         }
     }
+}
+
+.glitter_page_blocktype_blockquote {
+    margin: 0;
+    font-family: 'Pimpernel';
+    color: #fff;
+    font-size: 2.625em;
+    text-align: center;
+    box-sizing: border-box;
+    padding: 0.762em;
+    p:first-of-type {
+        margin: 0.5em 0 0 0;
+    }
+    .citation {
+        margin-top: 0;
+        font-family: 'Open Sans', sans-serif;
+        font-size: 0.429em;
+    }
+    @media all and (min-width: (@responsive-md + 1)) {
+        body.single-col & {
+            width: calc(100% ~"+" 4.571em);
+            margin-left: -2.286em;
+        }
+    }
+    &.red {background: @red; .citation { color: lighten(@red, 12.5%); }}
+    &.blue {background: @blue; .citation { color: lighten(@blue, 12.5%); }}
+    &.purple {background: @purple; .citation { color: lighten(@purple, 12.5%); }}
+    &.dark-green {background: @dark-green; .citation { color: lighten(@dark-green, 12.5%); }}
+    &.green {background: @green; .citation { color: lighten(@green, 12.5%); }}
+    &.yellow {background: @yellow; .citation { color: lighten(@yellow, 12.5%); }}
 }
 
 .faq-block {
@@ -703,7 +718,7 @@ body.two-col & {
 
 .jumbotron {
     position: relative;
-    margin-bottom: 2em;
+    body.page & { margin-bottom: 5em; }
     .glitter_page_blocktype_poster {
         overflow: hidden;
         h1,h2,h3 { line-height: 1.175;}
