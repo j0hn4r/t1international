@@ -20,9 +20,9 @@
     </ul>
     <div class="foot-nav pull-right">
         <ul>
-            <li><a href="#">Privacy</a></li>
-            <li><a href="#">Terms</a></li>
-            <li><a href="#">Contact</a></li>
+            {% for link in footer_links %}
+                <li><a href="{{ link.link }}">{{ link.title }}</a></li>
+            {% endfor %}
             <li><a href="https://www.blanc.ltd.uk/">Site by Blanc</a></li>
         </ul>
     </div>

@@ -77,12 +77,14 @@ THIRD_PARTY_APPS = [
     'mptt',
     'django_mptt_admin',
     'sorl.thumbnail',
+    'adminsortable',
 ]
 
 
 PROJECT_APPS = [
     'blocks',
     'pages',
+    'footer',
 ]
 
 
@@ -192,6 +194,7 @@ TEMPLATES = [
                 'django.template.context_processors.tz',
                 'django.template.context_processors.request',
                 'django.contrib.messages.context_processors.messages',
+                'footer.context_processors.links',
             ],
         },
     },

@@ -1,9 +1,10 @@
 Django==1.8.12
-pytz==2016.3
-pylibmc==1.5.1
-psycopg2==2.6.1
 Pillow==3.2.0
 dj-database-url==0.4.1
+django-admin-sortable==2.0.15
+psycopg2==2.6.1
+pylibmc==1.5.1
+pytz==2016.3
 raven==5.13.0
 
 # Storage
@@ -22,3 +23,4 @@ django-glitter==0.1.6
 django-mptt==0.8.3
 django-mptt-admin==0.3.6
 six==1.10.0
+
