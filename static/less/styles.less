@@ -547,6 +547,7 @@ body.two-col & {
             margin: 0.25em 0 1.5em 0;
         }
     }
+    a { color: @red; font-weight: bold; }
     ul {
         .remove-list-style;
         line-height: 1.5;
@@ -714,29 +715,9 @@ body.two-col & {
         text-align: center;
         font-weight: normal;
         color: #fff;
-        span {
-            display: block;
-            margin-top: 0.75em;
-        }
-    }
-
-}
-
-.jumbotron {
-    position: relative;
-    body.page & { margin-bottom: 5em; }
-    .glitter_page_blocktype_poster {
-        overflow: hidden;
-        h1,h2,h3 { line-height: 1.175;}
-        h1 {
-            &:first-of-type { margin-top: 1.25em; }
-            &:last-of-type { margin-bottom: 2em; }
-        }
+        margin: 7em auto 8em auto;
         body.home & {
-            h1 {
-                &:first-of-type { margin-top: 3em; }
-                &:last-of-type { margin-bottom: 5em; }
-            }
+            margin: 10em auto 12em auto;
         }
         body.page & {
             @media all and (min-width: (@responsive-md + 1)) {
@@ -747,6 +728,28 @@ body.two-col & {
             @media all and (max-width: @responsive-sm) {
                 h1 { font-size: 2em; }
             }
+        }
+        span {
+            display: block;
+            margin-top: 0.75em;
+        }
+    }
+    h2 {
+        font-size: 5em;
+        em {
+            color: @red;
+            font-style: normal;
+        }
+    }
+}
+
+.jumbotron {
+    position: relative;
+    body.page & { margin-bottom: 5em; }
+    .glitter_page_blocktype_poster {
+        overflow: hidden;
+        h1,h2,h3 { line-height: 1.175;}
+        body.page & {
         }
     }
     .donation-panel {
@@ -1093,8 +1096,7 @@ body.two-col & {
     }
     .column-50 {
         display: table-cell;
-        height: 50vw;
-        max-height: 600px;
+        max-height: 640px;
         padding: 5vw;
         box-sizing: border-box;
         text-align: center;
