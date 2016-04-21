@@ -14,3 +14,8 @@ class Blockquote(BaseBlock):
     background_color = models.CharField(
         choices=pages_choices.BLOCKQUOTE_COLOUR_CHOICES, max_length=16
     )
+
+
+class FAQ(BaseBlock):
+    question = models.TextField()
+    answer = models.TextField()
