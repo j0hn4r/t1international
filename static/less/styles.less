@@ -217,6 +217,15 @@ input[type="submit"] {
         input {
             width: 6em;
         }
+        @media all and (max-width: 680px) {
+            width: 100%;
+            margin-bottom: 1em;
+            input {
+                width: calc(50% ~"-" 0.5em);
+                margin-left: 0;
+                &:last-of-type { margin-left: 0.5em; }
+            }
+        }
     }
     .hidden { display: none !important; }
     @media all and (max-width: @responsive-xl) {
@@ -230,6 +239,17 @@ input[type="submit"] {
         }
         input[type="email"] {
             margin-left: 1em;
+        }
+    }
+    @media all and (max-width: 680px) {
+        input {
+            height: 60px;
+            margin-left: 0.5em;
+            &[type="email"] {
+                width: calc(100% ~"-" 11em);
+                margin-left: 0;
+            }
+            &[type="submit"] { width: 10em; }
         }
     }
 }
@@ -575,6 +595,7 @@ body.two-col & {
 }
 
 .faq-block {
+    font-size: 1.125em;
     ul { .remove-list-style; }
     li {
         padding: 1.5em 0;
@@ -593,17 +614,22 @@ body.two-col & {
             background: @light-grey;
             border-radius: 0.25em;
             position: absolute;
-            top: 1.175em;
+            top: 1.55em;
             right: 0;
             width: 30px;
             height: 30px;
             text-align: center;
             font-size: 1em;
-            line-height: 2.125;
+            line-height: 1.925;
+        }
+        @media all and (min-width: (@responsive-xl + 1)) {
+            .status:after {
+                line-height: 1.725;
+            }
         }
     }
     label {
-        font-size: 1.5em;
+        font-size: 1.55em;
         color: @blue;
         font-weight: bold;
         display: block;
@@ -658,9 +684,9 @@ body.two-col & {
         z-index: -200;
     }
     .poster-callout {
-        .absolute-center;
-        top: 45%;
-        width: 90vw;
+        width: 80vw;
+        max-width: 55em;
+        margin: auto;
         text-align: center;
         font-weight: normal;
         color: #fff;
@@ -674,23 +700,27 @@ body.two-col & {
 
 .jumbotron {
     position: relative;
-    height: 60vh;
-    min-height: 430px;
-    max-height: 570px;
-    h1,h2,h3 { line-height: 1.175;}
-    body.page & {
-        min-height: 320px;
-        max-height: 400px;
-        @media all and (min-width: (@responsive-md + 1)) {
-            h1 {
-                width: 12.75em;
-                margin: auto;
-                font-size: 3.750em;
+    .glitter_page_blocktype_poster {
+        overflow: hidden;
+        h1,h2,h3 { line-height: 1.175;}
+        h1 {
+            &:first-of-type {
+                margin-top: 3em;
+            }
+            &:last-of-type {
+                margin-bottom: 5em;
             }
         }
-        @media all and (max-width: @responsive-sm) {
-            height: 280px;
-            h1 { font-size: 2em; }
+        body.page & {
+            @media all and (min-width: (@responsive-md + 1)) {
+                h1 {
+                    font-size: 3.750em;
+                }
+            }
+            @media all and (max-width: @responsive-sm) {
+                height: 280px;
+                h1 { font-size: 2em; }
+            }
         }
     }
     .donation-panel {
