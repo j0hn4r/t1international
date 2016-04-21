@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+from __future__ import unicode_literals
 
 """
 Django settings for t1international project.
@@ -46,7 +47,6 @@ PROJECT_APPS_ROOT = os.path.join(BASE_DIR, 'apps')
 sys.path.append(PROJECT_APPS_ROOT)
 
 
-# Application definition
 DEFAULT_APPS = [
     # These apps should come first to load correctly.
     'blanc_admin_theme',
@@ -60,6 +60,7 @@ DEFAULT_APPS = [
     'django.contrib.staticfiles',
     'django.contrib.sites',
 ]
+
 
 THIRD_PARTY_APPS = [
     'raven.contrib.django.raven_compat',
@@ -78,10 +79,12 @@ THIRD_PARTY_APPS = [
     'sorl.thumbnail',
 ]
 
+
 PROJECT_APPS = [
     'blocks',
     'pages',
 ]
+
 
 INSTALLED_APPS = DEFAULT_APPS + THIRD_PARTY_APPS + PROJECT_APPS
 
