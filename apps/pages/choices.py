@@ -6,5 +6,7 @@ BLOCKQUOTE_COLOUR_CHOICES = (
     ('red', 'Red'),
     ('blue', 'Blue'),
     ('purple', 'Purple'),
-    ('dark-green', 'Dark Green')
+    ('dark-green', 'Dark Green'),
+    ('green', 'Green'),
+    ('yellow', 'Yellow'),
 )

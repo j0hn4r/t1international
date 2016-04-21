@@ -1,7 +1,8 @@
-{% load thumbnail %}
-
-<div class="{{ css_classes }}">
-    <div class="faq-content">
-      <p>{{ object }}</p>
+{% if object.question %}
+    <div class="{{ css_classes }}">
+        <label for="faq{{ object.id }}">{{ object.question}}</label>
+        <input type="checkbox" id="faq{{ object.id }}" class="hidden">
+        <p class="hidden">{{ object.answer }}</p>
+        <div class="status"></div>
     </div>
-</div>
+{% endif %}
