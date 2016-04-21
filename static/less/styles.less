@@ -550,6 +550,9 @@ body.two-col & {
         .content-col, .side-col {
             width: 100%;
         }
+        #glitter_column_footer {
+            margin-top: 0;
+        }
     }
 }
 
@@ -655,20 +658,20 @@ body.two-col & {
         font-size: 1em;
         line-height: 1.925;
     }
-    &:first-of-type{
-        &:before {
-            content: "FAQ";
-            display: block;
-            font-size: 1.55em;
-            font-weight: bold;
-            margin-bottom: 1em;
-        }
-        .status:after {
-            top: 4.825em;
-        }
+    &:before {
+        content: "FAQ";
+        display: block;
+        font-size: 1.55em;
+        font-weight: bold;
+        margin-bottom: 1em;
+    }
+    .status:after {
+        top: 4.825em;
     }
     + .glitter_page_blocktype_faq {
         border-top: 2px solid @light-grey;
+        &:before { display: none; }
+        .status:after { top: 1.5em; }
     }
     @media all and (min-width: (@responsive-xl + 1)) {
         .status:after {
@@ -939,7 +942,7 @@ body.two-col & {
 .glitter_page_blocktype_billboard {
     width: 100%;
     box-sizing: border-box;
-    padding: 0.75em;
+    padding: 1.25em;
     display: table;
     vertical-align: middle;
     text-align: center;
