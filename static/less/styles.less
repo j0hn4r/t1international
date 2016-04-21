@@ -720,14 +720,13 @@ body.two-col & {
                 }
             }
             @media all and (max-width: @responsive-sm) {
-                height: 280px;
                 h1 { font-size: 2em; }
             }
         }
     }
     .donation-panel {
         position: absolute;
-        left: 50%; bottom: -4.55em;
+        left: 50%; bottom: -4.95em;
         transform: translateX(-50%);
         width: 25em;
         height: 9.375em;
@@ -735,7 +734,7 @@ body.two-col & {
         text-align: center;
         color: #fff;
         h3 {
-            height: 2.75em;
+            height: 2.5em;
             background: @red;
             border-top-right-radius: 0.25em;
             border-top-left-radius: 0.25em;
@@ -749,7 +748,7 @@ body.two-col & {
             li {
                 display: inline-block;
                 width: 25%;
-                height: 4.6875em;
+                height: 4.3em;
                 float: left;
                 &:first-of-type { border-bottom-left-radius: 0.25em; }
                 &:last-of-type { border-bottom-right-radius: 0.25em; }
@@ -777,29 +776,27 @@ body.two-col & {
                         position: absolute;
                         bottom: 1.35em;
                         left: 2em;
-
-                    }
-                    input[type="text"] {
-                        width: 50%;
-                        margin-left: 0.6em;
-                        color: #fff;
-                        padding: 0;
-                        padding-top: 0.575em;
-                        text-align: right;
-                        font-weight: bold;
                     }
                 }
-                label, input[type="text"] {
+                a {
                     width: 100%;
-                    appearance: none;
+                    height: 1.87em;
+                    text-decoration: none;
+                    color: #fff;
                     padding-top: 0.6em;
                     display: inline-block;
-                    border: none;
                     background: none;
-                    outline: none;
                     font-size: 1.75em;
                     font-weight: bold;
                 }
+            }
+        }
+        @media all and (max-width: @responsive-xs) {
+            width: 100%;
+            h3 { border-radius: 0; }
+            ul li {
+                &:first-of-type { border-radius: 0; }
+                &:last-of-type { border-radius: 0; }
             }
         }
     }
@@ -1004,6 +1001,7 @@ body.two-col & {
     height: 100%;
     overflow: hidden;
     table-layout: fixed;
+    body.page & { margin-top: 6em; }
     .glitter_page_blocktype_billboard, .glitter_page_blocktype_bannerblock a {
         padding: 0 1em;
     }
