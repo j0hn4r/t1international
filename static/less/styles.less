@@ -612,38 +612,44 @@ body.two-col & {
     &.yellow {background: @yellow; .citation { color: lighten(@yellow, 12.5%); }}
 }
 
-.faq-block {
+.glitter_page_blocktype_faq {
     font-size: 1.125em;
-    ul { .remove-list-style; }
-    li {
-        padding: 1.5em 0;
-        position: relative;
-        &:not(:first-of-type) {
-            border-top: 2px solid @light-grey;
-        }
-        p {
-            margin-bottom: 0;
-
+    padding: 1.5em 0;
+    position: relative;
+    p { margin-bottom: 0; }
+    .status:after {
+        .icon;
+        content: '\e906';
+        display: inline-block;
+        background: @light-grey;
+        border-radius: 0.25em;
+        position: absolute;
+        top: 1.5em;
+        right: 0;
+        width: 30px;
+        height: 30px;
+        text-align: center;
+        font-size: 1em;
+        line-height: 1.925;
+    }
+    &:first-of-type{
+        &:before {
+            content: "FAQ";
+            display: block;
+            font-size: 1.55em;
+            font-weight: bold;
+            margin-bottom: 1em;
         }
         .status:after {
-            .icon;
-            content: '\e906';
-            display: inline-block;
-            background: @light-grey;
-            border-radius: 0.25em;
-            position: absolute;
-            top: 1.55em;
-            right: 0;
-            width: 30px;
-            height: 30px;
-            text-align: center;
-            font-size: 1em;
-            line-height: 1.925;
+            top: 4.825em;
         }
-        @media all and (min-width: (@responsive-xl + 1)) {
-            .status:after {
-                line-height: 1.725;
-            }
+    }
+    + .glitter_page_blocktype_faq {
+        border-top: 2px solid @light-grey;
+    }
+    @media all and (min-width: (@responsive-xl + 1)) {
+        .status:after {
+            line-height: 1.725;
         }
     }
     label {
