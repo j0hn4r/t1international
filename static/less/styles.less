@@ -702,6 +702,7 @@ body.two-col & {
 }
 
 .glitter_page_blocktype_poster {
+    overflow: hidden;
     .image-holder {
         position: absolute;
         top: 0; right: 0; bottom: 0; left: 0;
@@ -710,7 +711,7 @@ body.two-col & {
     }
     .poster-callout {
         width: 80vw;
-        max-width: 55em;
+        max-width: 62em;
         margin: auto;
         text-align: center;
         font-weight: normal;
@@ -734,6 +735,8 @@ body.two-col & {
             margin-top: 0.75em;
         }
     }
+    h1 + h1 { margin-top: 0.75em; }
+    h1,h2,h3,h4,h5 { margin: 0; line-height: 1.175; }
     h2 {
         font-size: 5em;
         em {
@@ -741,17 +744,12 @@ body.two-col & {
             font-style: normal;
         }
     }
+    h3 { font-size: 2.375em; }
 }
 
 .jumbotron {
     position: relative;
     body.page & { margin-bottom: 5em; }
-    .glitter_page_blocktype_poster {
-        overflow: hidden;
-        h1,h2,h3 { line-height: 1.175;}
-        body.page & {
-        }
-    }
     .donation-panel {
         position: absolute;
         left: 50%; bottom: -4.95em;
@@ -1206,6 +1204,15 @@ body.two-col & {
         text-align: center;
         padding-top: 1.25em;
         border-top: 2px solid @line;
+        position: relative;
+        @media all and (min-width: (@responsive-lg + 1)) {
+            .social-icons {
+                position: absolute;
+                top: 1.25em;
+                left: 50%;
+                transform: translateX(-50%);
+            }
+        }
         @media all and (max-width: @responsive-lg) {
             padding-top: 2.5em;
         }
