@@ -2,6 +2,7 @@
 
 {% load staticfiles %}
 {% load glitter %}
+{% load t1_navigation %}
 
 <html lang="en">
     <head>
@@ -20,6 +21,17 @@
 
         <header class="head">
             {% include "includes/header.html" %}
+            {% block primary_navigation %}
+                {% primary_navigation page=glitter.obj css_class="primary pull-right2" %}
+            {% endblock primary_navigation %}
+
+            {% block secondary_navigation %}
+                {% secondary_navigation page=glitter.obj %}
+            {% endblock secondary_navigation %}
+
+            {% block mobile_navigation %}
+                {% tree_navigation page=glitter.obj max_depth=1 css_class="mobile" %}
+            {% endblock mobile_navigation %}
         </header>
 
         {% block main %}{% endblock %}
