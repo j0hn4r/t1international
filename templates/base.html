@@ -20,19 +20,23 @@
         {% glitter_startbody %}
 
         <header class="head">
-            {% include "includes/header.html" %}
+            <a href="/"><div class="logo pull-left"></div></a>
+            <input type="checkbox" name="primary-nav" class="hidden" id="primary-nav" />
+            <label for="primary-nav"></label>
+            <a href="#" class="btn small">Donate</a>
             {% block primary_navigation %}
-                {% primary_navigation page=glitter.obj css_class="primary pull-right2" %}
+                {% primary_navigation page=glitter.obj %}
             {% endblock primary_navigation %}
-
-            {% block secondary_navigation %}
-                {% secondary_navigation page=glitter.obj %}
-            {% endblock secondary_navigation %}
 
             {% block mobile_navigation %}
                 {% tree_navigation page=glitter.obj max_depth=1 css_class="mobile" %}
             {% endblock mobile_navigation %}
+            <div class="clear-fix"></div>
         </header>
+
+        {% block secondary_navigation %}
+            {% secondary_navigation page=glitter.obj %}
+        {% endblock secondary_navigation %}
 
         {% block main %}{% endblock %}
 
