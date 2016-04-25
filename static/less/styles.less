@@ -372,7 +372,6 @@ input[type="submit"] {
     @media all and (max-width: @responsive-md) {
         padding-bottom: 0;
         .primary { display: none; }
-        .secondary { display: block; }
         .mobile {
             overflow: hidden;
             clear: both;
@@ -484,6 +483,9 @@ input[type="submit"] {
                 padding: 0.75em 0;
             }
         }
+    }
+    @media all and (max-width: @responsive-md) {
+        display: none;
     }
 }
 
