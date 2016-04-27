@@ -14,6 +14,89 @@
         </div>
 
         <div class="side-col">
+            <div class="form">
+                <h3>Sign the Charter...</h3>
+                <ul class="nav nav-tabs type-selector" role="tablist">
+                    <li role="presentation" class="active"><a href="#individual" aria-controls="individual" role="tab" data-toggle="tab">Individual</a></li>
+                    <li role="presentation"><a href="#organisation" aria-controls="organisation" role="tab" data-toggle="tab">Organisation</a></li>
+                </ul>
+                <div class="tab-content">
+                    <div role="tabpanel" class="tab-pane active" id="individual">
+                        <form class="individual">
+                            <label class="required" for="name">First and last names</label>
+                            <input type="text" id="name">
+                            <label class="required" for="email">Email address</label>
+                            <input type="email" id="email">
+                            <label class="required">Country</label>
+                            <select>
+                                <option value="AFG">Afghanistan</option>
+                                <option value="ALA">Åland Islands</option>
+                                <option value="ALB">Albania</option>
+                                <option value="DZA">Algeria</option>
+                                <option value="ASM">American Samoa</option>
+                                <option value="AND">Andorra</option>
+                                <option value="AGO">Angola</option>
+                                <option value="AIA">Anguilla</option>
+                                <option value="JEY">Jersey</option>
+                                <option value="JOR">Jordan</option>
+                                <option value="KAZ">Kazakhstan</option>
+                                <option value="KEN">Kenya</option>
+                                <option value="KIR">Kiribati</option>
+                                <option value="PRK">Korea, Democratic People's Republic of</option>
+                                <option value="KOR">Korea, Republic of</option>
+                                <option value="KWT">Kuwait</option>
+                                <option value="KGZ">Kyrgyzstan</option>
+                                <option value="LAO">Lao People's Democratic Republic</option>
+                                <option value="LVA">Latvia</option>
+                                <option value="LBN">Lebanon</option>
+                                <option value="LSO">Lesotho</option>
+                                <option value="LBR">Liberia</option>
+                                <option value="LBY">Libya</option>
+                                <option value="LIE">Liechtenstein</option>
+                                <option value="LTU">Lithuania</option>
+                                <option value="LUX">Luxembourg</option>
+                                <option value="RWA">Rwanda</option>
+                                <option value="BLM">Saint Barthélemy</option>
+                                <option value="SHN">Saint Helena, Ascension and Tristan da Cunha</option>
+                                <option value="KNA">Saint Kitts and Nevis</option>
+                                <option value="SVK">Slovakia</option>
+                                <option value="SVN">Slovenia</option>
+                                <option value="SLB">Solomon Islands</option>
+                                <option value="SOM">Somalia</option>
+                                <option value="ZAF">South Africa</option>
+                                <option value="SGS">South Georgia and the South Sandwich Islands</option>
+                                <option value="SSD">South Sudan</option>
+                                <option value="ESP">Spain</option>
+                                <option value="LKA">Sri Lanka</option>
+                                <option value="SDN">Sudan</option>
+                                <option value="SUR">Suriname</option>
+                            </select>
+                            <label for="comment">Comment</label>
+                            <input type="text" id="comment">
+                            <label for="optin">Yes, I would like to lorem ipsum dolar sit amet constature pugnato sum.</label>
+                            <input type="checkbox" name=optin>
+                            <input type="submit" class="btn">
+                        </form>
+                    </div>
+
+                    <div role="tabpanel" class="tab-pane" id="organisation">
+                        <form class="organisation">
+                            <label class="required" for="organisation-name">Organisation</label>
+                            <input type="text" id="organisation-name">
+                            <label class="required" for="contact-name">Contact name</label>
+                            <input type="text" id="contact-name">
+                            <label class="required" for="email">Email address</label>
+                            <input type="email" id="email">
+                            <label for="comment">Comment</label>
+                            <input type="text" id="comment">
+                            <label for="optin">Yes, I would like to lorem ipsum dolar sit amet constature pugnato sum.</label>
+                            <input type="checkbox" name=optin>
+                            <input type="submit" class="btn">
+                        </form>
+                    </div>
+                </div>
+                <div class="clear-fix"></div>
+            </div>
             {{ columns.sidebar }}
         </div>
     </div>

@@ -556,7 +556,7 @@ body.two-col & {
         width: calc(100% ~"-" 28em);
         float: left;
         box-sizing: border-box;
-        padding: 0 20px;
+        padding: 0 5em;
     }
     .side-col {
         width: 28em;
@@ -568,6 +568,7 @@ body.two-col & {
     @media all and (max-width: @responsive-xl) {
         .content-col {
             width: 42.5em;
+            padding: 0 20px;
             margin: auto;
             float: none;
         }
@@ -880,6 +881,34 @@ body.two-col & {
     }
 }
 
+.tab-pane {
+    display: none;
+    &.active { display: block; }
+}
+
+.type-selector {
+    overflow: hidden;
+    border-top: 2px solid @line;
+    border-bottom: 2px solid @line;
+    .remove-list-style;
+    li {
+        &:first-of-type a { border-right: 2px solid @line; }
+        &.active a { color: @blue; }
+    }
+    a {
+        display: inline-block;
+        width: 50%;
+        float: left;
+        box-sizing: border-box;
+        padding: 0.25em 1em;
+        margin: 0.5em 0;
+        text-decoration: none;
+        color: @dark;
+        text-align: center;
+        font-weight: bold;
+    }
+}
+
 .form {
     background: @light-grey;
     font-size: 1.125em;
@@ -887,27 +916,6 @@ body.two-col & {
     h3 {
         font-size: 1.55em;
         &:first-of-type { margin: 0 0 0.5em 0.5em; }
-    }
-    .type-selector {
-        overflow: hidden;
-        border-top: 2px solid @line;
-        border-bottom: 2px solid @line;
-        a {
-            display: inline-block;
-            width: 50%;
-            float: left;
-            box-sizing: border-box;
-            padding: 0.25em 1em;
-            margin: 0.5em 0;
-            text-decoration: none;
-            color: @dark;
-            text-align: center;
-            font-weight: bold;
-            &.active { color: @blue; }
-            &:first-of-type {
-                border-right: 2px solid @line;
-            }
-        }
     }
     label, input { width: 100%; }
     label {
@@ -927,6 +935,7 @@ body.two-col & {
         }
     }
     .selectric {
+        .label { margin-left: 14px; }
         p {
             font-size: 1em;
             font-family: 'Open sans', sans-serif;
@@ -940,8 +949,7 @@ body.two-col & {
     }
     .selectric-open {
         .selectric {
-            border-bottom-left-radius: 0;
-            border-bottom-right-radius: 0;
+            border-radius: 0;
         }
     }
     .selectric-items {

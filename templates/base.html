@@ -43,5 +43,12 @@
         <footer class="foot">
             {% include "includes/footer.html" %}
         </footer>
+
+        <script src="{% static 'admin/js/jquery.min.js' %}"></script>
+        <script src="{% static 'js/tab.js' %}"></script>
+        <script src="{% static 'js/jquery.selectric.min.js' %}"></script>
+        <script>
+            $('select').selectric();
+        </script>
     </body>
 </html>
