@@ -928,7 +928,7 @@ body.two-col & {
             color: @blue;
             margin-left: 0.25em;
         }
-        &[for=optin] {
+        &[for=mce-OPTOUT] {
             margin-left: 0;
             width: calc(100% ~"-" 25px);
             float: right;
@@ -973,6 +973,16 @@ body.two-col & {
     .btn {
         margin-top: 0.5em;
         font-size: 1.556em;
+    }
+    #mc_embed_signup {
+        input.mce_inline_error {
+            border-color: @red;
+            border-bottom-right-radius: 0;
+            border-bottom-left-radius: 0;
+        }
+         div.mce_inline_error {
+            background: @red;
+        }
     }
 }
 
