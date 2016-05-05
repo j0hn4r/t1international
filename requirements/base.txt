@@ -1,15 +1,14 @@
-Django==1.8.12
+Django==1.8.13
 Pillow==3.2.0
 dj-database-url==0.4.1
-django-admin-sortable==2.0.15
 psycopg2==2.6.1
 pylibmc==1.5.1
-pytz==2016.3
-raven==5.13.0
+pytz==2016.4
+raven==5.15.0
 
 # Storage
 django-storages==1.4.1
-boto==2.39.0
+boto==2.40.0
 blanc-contentfiles==0.2.3
 
 # Admin theme
@@ -20,7 +19,9 @@ sorl-thumbnail==12.3
 
 # Glitter
 django-glitter==0.1.6
-django-mptt==0.8.3
+django-mptt==0.8.4
 django-mptt-admin==0.3.6
 six==1.10.0
 
+# Sortable
+django-admin-sortable==2.0.15

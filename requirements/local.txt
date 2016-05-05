@@ -2,6 +2,6 @@
 
 django-debug-toolbar==1.4
 Fabric==1.11.1
-django-extensions==1.6.1
+django-extensions==1.6.6
 coverage==4.0.3
-awscli==1.10.21
+awscli==1.10.26
