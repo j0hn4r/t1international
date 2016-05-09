@@ -44,6 +44,8 @@ class DonationForm(DonateFormMixin, forms.ModelForm):
         model = Donation
         fields = ('amount',)
 
+    amount = forms.IntegerField(min_value=1)
+
 
 class DonationCompleteForm(forms.Form):
     obj = forms.ModelChoiceField(
@@ -58,7 +60,7 @@ class SubscriberForm(DonateFormMixin, forms.ModelForm):
         model = Subscriber
         fields = ('amount',)
 
-    amount = forms.DecimalField(max_digits=9, decimal_places=2)
+    amount = forms.IntegerField(min_value=1)
 
     def save(self, *args, **kwargs):
         # Fix the plan based on the amount
