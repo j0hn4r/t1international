@@ -63,6 +63,7 @@ DEFAULT_APPS = [
 
 
 THIRD_PARTY_APPS = [
+    'crispy_forms',
     'raven.contrib.django.raven_compat',
     'glitter',
     'glitter.pages',
@@ -279,3 +280,6 @@ GLITTER_DEFAULT_BLOCKS = (
     ('glitter_image.ImageBlock', 'Image'),
     ('glitter_html.HTML', 'HTML'),
 )
+
+# Forms
+CRISPY_TEMPLATE_PACK = 'uni_form'
