@@ -84,6 +84,7 @@ THIRD_PARTY_APPS = [
 
 PROJECT_APPS = [
     'blocks',
+    'donate',
     'pages',
     'footer',
 ]
@@ -283,3 +284,7 @@ GLITTER_DEFAULT_BLOCKS = (
 
 # Forms
 CRISPY_TEMPLATE_PACK = 'uni_form'
+
+# Donations
+STRIPE_SECRET_KEY = os.environ.get('STRIPE_SECRET_KEY')
+STRIPE_PUBLIC_KEY = os.environ.get('STRIPE_PUBLIC_KEY')

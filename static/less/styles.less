@@ -1297,3 +1297,59 @@ body.two-col & {
         a { font-weight: bold; }
     }
 }
+
+
+//////////////////////    MODAL        /////////////////////
+
+.fade {
+    opacity: 0;
+    transition: opacity 0.3s;
+
+    &.in {
+        opacity: 1;
+    }
+}
+
+.modal-open {
+    overflow: hidden;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: black;
+    z-index: 20000;
+    text-align: center;
+}
+
+.modal-backdrop {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 20001;
+    background-color: black;
+}
+
+.modal-dialog {
+    display: inline-block;
+    margin-top: 50px;
+    background: white;
+    padding: 10px 2em;
+    position: relative;
+    box-shadow: 0.5em 0.5em 1em rgba(0,0,0,0.5);
+    .close {
+        float: right;
+        background: none;
+        font-size: 13px;
+        line-height: 31px;
+        font-weight: bold;
+        text-decoration: underline;
+        border: none;
+        padding: 0;
+    }
+}

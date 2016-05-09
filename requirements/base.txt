@@ -28,3 +28,7 @@ django-admin-sortable==2.0.15
 
 # Crispy forms
 django-crispy-forms==1.6.0
+
+# Donations
+stripe==1.33.0
+requests==2.10.0

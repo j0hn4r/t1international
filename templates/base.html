@@ -3,6 +3,8 @@
 {% load staticfiles %}
 {% load glitter %}
 {% load t1_navigation %}
+{% load crispy_forms_tags %}
+{% load donate_tags %}
 
 <html lang="en">
     <head>
@@ -23,7 +25,7 @@
             <a href="/"><div class="logo pull-left"></div></a>
             <input type="checkbox" name="primary-nav" class="hidden" id="primary-nav" />
             <label for="primary-nav"></label>
-            <a href="#" class="btn small">Donate</a>
+            <a href="#" class="btn small" data-toggle="modal" data-target="#donate-modal">Donate</a>
             {% block primary_navigation %}
                 {% primary_navigation page=glitter.obj %}
             {% endblock primary_navigation %}
@@ -47,8 +49,39 @@
         <script src="{% static 'admin/js/jquery.min.js' %}"></script>
         <script src="{% static 'js/tab.js' %}"></script>
         <script src="{% static 'js/jquery.selectric.min.js' %}"></script>
+        <script src="{% static 'js/transition.js' %}"></script>
+        <script src="{% static 'js/modal.js' %}"></script>
+        <script src="{% static 'js/donate.js' %}"></script>
         <script>
-            $('.selectric').selectric();
+            /* global $ */
+            $().ready(function() {
+                "use strict";
+
+                $(".selectric").selectric();
+            });
         </script>
+
+        <div id="donate-modal" class="modal fade">
+            <div class="modal-dialog">
+                <form id="donate-form" method="POST">
+                    {% get_donate_form as donate_form %}
+                    {% crispy donate_form %}
+                </form>
+            </div>
+        </div>
+
+        <div id="payment-modal" class="modal fade">
+            <div class="modal-dialog">
+                <h1>Almost there!</h1>
+                <p>Click to continue to our payment processor...</p>
+                <button id="pay-now" class="button" type="button" disabled="disabled">Continue to payment</button>
+            </div>
+        </div>
+
+        <form id="donation-complete-form" method="POST" action="" style="display:none;">
+            {% csrf_token %}
+            {% get_complete_form as complete_form %}
+            {{ complete_form.as_p }}
+        </form>
     </body>
 </html>

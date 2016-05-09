@@ -12,6 +12,9 @@ from glitter import block_admin
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
     url(r'^blockadmin/', include(block_admin.site.urls)),
+
+    # Donations
+    url(r'^donate/', include('donate.urls', namespace='donate')),
 ]
 
 # Make it easier to see a 404 page under debug
