@@ -4,7 +4,8 @@ $().ready(function() {
     "use strict";
 
     var donate_modal = $("#donate-modal");
-    var payment_modal = $("#payment-modal");
+    var donate_part1 = $("#donate-popup-1");
+    var donate_part2 = $("#donate-popup-2");
     var paynow_button = $("#pay-now");
     var donation_complete_form = $("#donation-complete-form");
     var stripe_handler;
@@ -48,8 +49,8 @@ $().ready(function() {
                     paynow_button.prop("disabled", false);
                 });
 
-                donate_modal.modal("hide");
-                payment_modal.modal();
+                donate_part1.addClass("hidden");
+                donate_part2.removeClass("hidden");
             } else if (data.success === false) {
                 $("#donate-form").html(data.form);
             }
@@ -73,13 +74,15 @@ $().ready(function() {
             });
         }
 
-        // Reset the pay now button
+        // Reset any bits needed
+        donate_part1.removeClass("hidden");
+        donate_part2.addClass("hidden");
         paynow_button.prop("disabled", true);
     });
 
     paynow_button.on("click", function(event) {
         event.preventDefault();
-        payment_modal.modal("hide");
+        donate_modal.modal("hide");
         stripe_handler.open(stripe_open);
     });
 });
