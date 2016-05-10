@@ -1330,7 +1330,7 @@ body.two-col & {
     right: 0;
     bottom: 0;
     background: fade(#000, 80%);
-    z-index: 20000;
+    z-index: 2000000;
     text-align: center;
     &#donate-modal {
         animation: fade-in 0.3s;
@@ -1359,7 +1359,14 @@ body.two-col & {
     max-width: 600px;
     width: 80vw;
     .absolute-center;
-    legend { font-size: 2.5em; font-weight: bold; line-height: 1.15; margin: 0.15em 0 0 0; }
+    legend {
+        font-size: 2.5em;
+        font-weight: bold;
+        line-height: 1.15;
+        margin: 0.15em 0 0 0;
+        width: 100%;
+        text-align: center;
+    }
     label { text-align: left; }
     fieldset { border: none; }
     h1 { margin: 0.15em 0 0 0; line-height: 1.15;}
@@ -1385,7 +1392,7 @@ body.two-col & {
         font-size: 0.9em;
     }
     .donate-button {
-        width: calc(50% ~"-" 0.425em);
+        width: calc(50% ~"-" 0.45em);
         float: left;
         &:first-of-type { margin-right: 0.85em; }
     }
