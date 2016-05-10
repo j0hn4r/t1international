@@ -61,9 +61,11 @@ $().ready(function() {
         var target = $(event.relatedTarget);
         var amount = target.data("amount");
 
-        if (amount !== undefined) {
-            $("#id_amount").val(amount);
+        if (amount === undefined) {
+            amount = 20;
         }
+
+        $("#id_amount").val(amount);
 
         // Load Stripe as late as possible
         if (stripe_load === undefined) {
