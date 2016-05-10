@@ -1331,7 +1331,7 @@ body.two-col & {
     &#donate-modal {
         animation: fade-in 0.3s;
         p:last-of-type {
-            font-size: 0.9em;
+            font-size: 1.25em;
             a { text-decoration: none; font-weight: bold; color: @red; }
         }
     }
@@ -1355,10 +1355,10 @@ body.two-col & {
     max-width: 600px;
     width: 80vw;
     .absolute-center;
-    legend { font-size: 2.5em; font-weight: bold; }
+    legend { font-size: 2.5em; font-weight: bold; line-height: 1.15; margin: 0.15em 0 0 0; }
     label { text-align: left; }
     fieldset { border: none; }
-    h1 { margin: 0; }
+    h1 { margin: 0.15em 0 0 0; line-height: 1.15;}
     label, input { width: 100%; }
     label {
         display: block;
@@ -1387,6 +1387,18 @@ body.two-col & {
     }
     .numberinput {
         margin-bottom: 0.85em;
+        padding-left: 1.575em;
+    }
+    #div_id_amount {
+        position: relative;
+        &:before {
+            content: '£';
+            display: inline-block;
+            font-size: 1.25em;
+            position: absolute;
+            bottom: 1.45em;
+            left: 1em;
+        }
     }
 }
 
