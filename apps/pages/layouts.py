@@ -37,3 +37,11 @@ class TwoColumn(PageLayout):
     content = columns.Column(width=960)
     sidebar = columns.Column(width=480)
     footer = columns.Column(width=960)
+
+
+@templates.attach('glitter_pages.Page')
+class Map(PageLayout):
+    billboard_top = columns.Column(width=1080)
+    content = columns.Column(width=960)
+    sidebar = columns.Column(width=480)
+    footer = columns.Column(width=960)

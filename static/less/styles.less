@@ -809,7 +809,7 @@ body.two-col & {
     position: relative;
     .donation-panel {
         position: absolute;
-        left: 50%; bottom: -4.95em;
+        left: 50%; bottom: -5em;
         transform: translateX(-50%);
         width: 25em;
         height: 9.375em;
@@ -1326,14 +1326,6 @@ body.two-col & {
 
 //////////////////////    MODAL        /////////////////////
 
-.fade {
-    opacity: 0;
-    transition: opacity 0.3s;
-    &.in {
-        opacity: 1;
-    }
-}
-
 .modal-open {
     overflow: hidden;
 }
@@ -1348,6 +1340,7 @@ body.two-col & {
     background: fade(#000, 80%);
     z-index: 20000;
     text-align: center;
+    &#donate-modal { animation: fade-in 0.3s; }
 }
 
 .modal-backdrop {
@@ -1382,3 +1375,10 @@ body.two-col & {
         padding: 0;
     }
 }
+
+@keyframes fade-in {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+
+

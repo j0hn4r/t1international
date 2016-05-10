@@ -1,0 +1,54 @@
+{% extends "glitter/base.html" %}
+
+
+{% block body_class %}page two-col{% endblock body_class %}
+{% block extra_style %}
+    <link rel="stylesheet" href="http://libs.cartocdn.com/cartodb.js/v3/3.15/themes/css/cartodb.css" />
+{% endblock extra_style %}
+
+{% block main %}
+    <div id="map" style="height: 45vw"></div>
+
+    <div class="page-wrapper">
+        <div class="content-col">
+            {{ columns.content }}
+        </div>
+
+        <div class="side-col">
+            {{ columns.sidebar }}
+        </div>
+    </div>
+
+    {{ columns.footer }}
+
+    <script src="http://libs.cartocdn.com/cartodb.js/v3/3.15/cartodb.js"></script>
+    <script>
+      function main() {
+        "use strict";
+        cartodb.createVis('map', 'https://t1international.cartodb.com/api/v2/viz/ac2bea16-1697-11e6-9cec-0ea31932ec1d/viz.json', {
+            shareable: true,
+            title: false,
+            description: false,
+            search: true,
+            tiles_loader: true,
+            center_lat: 50,
+            center_lon: 0,
+            zoom: 3
+        })
+        .done(function(vis, layers) {
+          // layer 0 is the base layer, layer 1 is cartodb layer
+          // setInteraction is disabled by default
+          layers[1].setInteraction(true);
+          // you can get the native map to work with it
+          var map = vis.getNativeMap();
+          // now, perform any operations you need
+          // map.setZoom(3);
+          // map.panTo([50.5, 30.5]);
+        })
+        .error(function(err) {
+          console.log(err);
+        });
+      }
+      window.onload = main;
+    </script>
+{% endblock main %}

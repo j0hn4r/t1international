@@ -12,6 +12,7 @@
 
         <title>{% block title %}{{ request.site.name }}{% endblock %}</title>
         <link href="{% static 'css/styles.min.css' %}" rel="stylesheet" />
+        {% block extra_style %}{% endblock %}
 
         {# NOTE: Remove IE conditional comments if you're using Modernizr for more than the html5shiv #}
         <!--[if lt IE 9]>
