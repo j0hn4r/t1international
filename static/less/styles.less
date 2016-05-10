@@ -96,7 +96,7 @@ p { line-height: 1.5; }
 .column-50 { width: 50%; }
 .column-75 { width: 75%; }
 
-.btn, .donate-button, .button, .glitter_page_blocktype_calltoactionblock a {
+.btn, .donate-button, .modal .button, .glitter_page_blocktype_calltoactionblock a {
     display: inline-block;
     padding: 0.6em 1.5em;
     border-radius: 0.25em;
@@ -914,7 +914,7 @@ body.two-col & {
     }
 }
 
-.form, .modal-dialog {
+.form {
     background: @light-grey;
     font-size: 1.125em;
     padding: 3em 1em 2em 1em;
@@ -976,19 +976,6 @@ body.two-col & {
         input {
             border-color: @red;
         }
-    }
-    .donate-button, .button {
-        appearance: none;
-        border: none;
-        font-size: 0.9em;
-    }
-    .donate-button {
-        width: calc(50% ~"-" 0.425em);
-        float: left;
-        &:first-of-type { margin-right: 0.85em; }
-    }
-    .numberinput {
-        margin-bottom: 0.85em;
     }
     input[type="checkbox"] {
         float: left;
@@ -1341,7 +1328,13 @@ body.two-col & {
     background: fade(#000, 80%);
     z-index: 20000;
     text-align: center;
-    &#donate-modal { animation: fade-in 0.3s; }
+    &#donate-modal {
+        animation: fade-in 0.3s;
+        p:last-of-type {
+            font-size: 0.9em;
+            a { text-decoration: none; font-weight: bold; color: @red; }
+        }
+    }
 }
 
 .modal-backdrop {
@@ -1364,7 +1357,14 @@ body.two-col & {
     .absolute-center;
     legend { font-size: 2.5em; font-weight: bold; }
     label { text-align: left; }
+    fieldset { border: none; }
     h1 { margin: 0; }
+    label, input { width: 100%; }
+    label {
+        display: block;
+        margin: 0.75em 0 0.25em 0.778em;
+        font-weight: bold;
+    }
     .close {
         float: right;
         background: none;
@@ -1374,6 +1374,19 @@ body.two-col & {
         text-decoration: underline;
         border: none;
         padding: 0;
+    }
+    .donate-button, .button {
+        appearance: none;
+        border: none;
+        font-size: 0.9em;
+    }
+    .donate-button {
+        width: calc(50% ~"-" 0.425em);
+        float: left;
+        &:first-of-type { margin-right: 0.85em; }
+    }
+    .numberinput {
+        margin-bottom: 0.85em;
     }
 }
 
