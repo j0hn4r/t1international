@@ -64,18 +64,19 @@
 
         <div id="donate-modal" class="modal fade">
             <div class="modal-dialog">
-                <form id="donate-form" method="POST">
-                    {% get_donate_form as donate_form %}
-                    {% crispy donate_form %}
-                </form>
-            </div>
-        </div>
+                <div id="donate-popup-1">
+                    <form id="donate-form" method="POST">
+                        {% get_donate_form as donate_form %}
+                        {% crispy donate_form %}
+                    </form>
 
-        <div id="payment-modal" class="modal fade">
-            <div class="modal-dialog">
-                <h1>Almost there!</h1>
-                <p>Click to continue to our payment processor...</p>
-                <button id="pay-now" class="button" type="button" disabled="disabled">Continue to payment</button>
+                    <p>UK donor? <a href="#">Click here</a> to donate with gift aid.</p>
+                </div>
+                <div id="donate-popup-2" class="hidden">
+                    <h1>Almost there!</h1>
+                    <p>Click to continue to our payment processor...</p>
+                    <button id="pay-now" class="button" type="button" disabled="disabled">Continue to payment</button>
+                </div>
             </div>
         </div>
 
