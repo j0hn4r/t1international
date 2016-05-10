@@ -72,6 +72,7 @@ p { line-height: 1.5; }
     position: absolute;
     top: 50%; left: 50%;
     transform: translateX(-50%) translateY(-50%);
+    -ms-transform: translateX(-50%) translateY(-50%);
 }
 
 .hidden {
@@ -812,6 +813,7 @@ body.two-col & {
         position: absolute;
         left: 50%; bottom: -5em;
         transform: translateX(-50%);
+        -ms-transform: translateX(-50%);
         width: 25em;
         height: 9.375em;
         z-index: 200;
@@ -1102,6 +1104,7 @@ body.two-col & {
             bottom: 0;
             left: 50%;
             transform: translateX(-50%);
+            -ms-transform: translateX(-50%);
         }
     }
 }
@@ -1296,6 +1299,7 @@ body.two-col & {
                 top: 1.75em;
                 left: 50%;
                 transform: translateX(-50%);
+                -ms-transform: translateX(-50%);
             }
         }
         @media all and (max-width: @responsive-lg) {
