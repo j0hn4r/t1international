@@ -56,6 +56,10 @@ body {
     @media all and (max-width: @responsive-xl) {
         font-size: 0.9em;
     }
+    &.modal-open {
+        overflow: hidden;
+        padding-right: 15px !important;
+    }
 }
 
 h1 { font-size: 2.5em; }
@@ -91,7 +95,7 @@ p { line-height: 1.5; }
 .column-50 { width: 50%; }
 .column-75 { width: 75%; }
 
-.btn, .glitter_page_blocktype_calltoactionblock a {
+.btn, .donate-button, .button, .glitter_page_blocktype_calltoactionblock a {
     display: inline-block;
     padding: 0.6em 1.5em;
     border-radius: 0.25em;
@@ -909,10 +913,13 @@ body.two-col & {
     }
 }
 
-.form {
+.form, .modal-dialog {
     background: @light-grey;
     font-size: 1.125em;
     padding: 3em 1em 2em 1em;
+    fieldset {
+        border: none;
+    }
     h3 {
         font-size: 1.55em;
         &:first-of-type { margin: 0 0 0.5em 0.5em; }
@@ -963,6 +970,24 @@ body.two-col & {
     input {
         font-size: 1em;
         padding: 0.5em 0.778em;
+    }
+    .error {
+        input {
+            border-color: @red;
+        }
+    }
+    .donate-button, .button {
+        appearance: none;
+        border: none;
+        font-size: 0.9em;
+    }
+    .donate-button {
+        width: calc(50% ~"-" 0.425em);
+        float: left;
+        &:first-of-type { margin-right: 0.85em; }
+    }
+    .numberinput {
+        margin-bottom: 0.85em;
     }
     input[type="checkbox"] {
         float: left;
@@ -1304,7 +1329,6 @@ body.two-col & {
 .fade {
     opacity: 0;
     transition: opacity 0.3s;
-
     &.in {
         opacity: 1;
     }
@@ -1321,7 +1345,7 @@ body.two-col & {
     left: 0;
     right: 0;
     bottom: 0;
-    background: black;
+    background: fade(#000, 80%);
     z-index: 20000;
     text-align: center;
 }
@@ -1337,11 +1361,16 @@ body.two-col & {
 
 .modal-dialog {
     display: inline-block;
-    margin-top: 50px;
     background: white;
-    padding: 10px 2em;
-    position: relative;
+    padding: 2em;
     box-shadow: 0.5em 0.5em 1em rgba(0,0,0,0.5);
+    min-width: 300px;
+    max-width: 600px;
+    width: 80vw;
+    .absolute-center;
+    legend { font-size: 2.5em; font-weight: bold; }
+    label { text-align: left; }
+    h1 { margin: 0; }
     .close {
         float: right;
         background: none;
