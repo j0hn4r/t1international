@@ -52,7 +52,7 @@ class BaseDonateView(FormView):
 
     def stripe_open(self, obj):
         return {
-            'name': 'T1 International',
+            'name': 'T1International',
             'image': staticfiles_storage.url('img/stripe.png'),
             'billingAddress': True,
             'shippingAddress': False,
