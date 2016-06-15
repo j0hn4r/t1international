@@ -1,0 +1,15 @@
+{% load signees_tags %}
+
+<div class="{{ css_classes }}">
+    {% get_signees as signees %}
+    <ul class="signee-marquee-first">
+    {% for signee in signees  %}
+        <li>{{ signee.name }}</li>
+    {% endfor %}
+    </ul>
+    <ul class="signee-marquee-second">
+    {% for signee in signees  %}
+        <li>{{ signee.name }}</li>
+    {% endfor %}
+    </ul>
+</div>

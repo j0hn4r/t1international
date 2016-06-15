@@ -28,3 +28,7 @@ class Billboard(BaseBlock):
 class Poster(BaseBlock):
     background_image = AssetForeignKey('glitter_assets.Image', null=True, blank=True)
     content = models.TextField()
+
+
+class Signees(BaseBlock):
+    pass
