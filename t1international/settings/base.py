@@ -87,6 +87,7 @@ PROJECT_APPS = [
     'donate',
     'pages',
     'footer',
+    'signees',
 ]
 
 
