@@ -833,6 +833,26 @@ body.two-col & {
     h3 { font-size: 2.375em; }
 }
 
+.glitter_page_blocktype_signees {
+    white-space: nowrap;
+    overflow-x: hidden;
+    padding: 0.75em 0;
+    background: @dark;
+    .signee-marquee {
+        .remove-list-style;
+        display: inline-block;
+        white-space: nowrap;
+        animation: marquee 25s linear infinite forwards;
+        li {
+            display: inline-block;
+            text-transform: uppercase;
+            color: #fff;
+            padding: 0 5vw;
+            border-right: 2px solid black;
+        }
+    }
+}
+
 .jumbotron {
     position: relative;
     .donation-panel {
@@ -1466,4 +1486,7 @@ div.cartodb-popup.header.blue div.cartodb-popup-header span.separator { backgrou
     to {opacity: 1;}
 }
 
-
+@keyframes marquee {
+    from { transform: translateX(0);}
+    to { transform: translateX(-100%);}
+}
