@@ -836,8 +836,18 @@ body.two-col & {
 .glitter_page_blocktype_signees {
     white-space: nowrap;
     overflow-x: hidden;
-    padding: 0.75em 0;
-    background: @dark;
+    padding: 0.75em 8em 0.75em 0;
+    background: @blue;
+    p {
+        color: #fff;
+        margin: 0;
+        padding: 0 1em;
+        border-right: 2px solid #444;
+        display: inline-block;
+        background: @blue;
+        position: relative;
+        z-index: 10;
+    }
     .signee-marquee {
         .remove-list-style;
         display: inline-block;
@@ -845,10 +855,8 @@ body.two-col & {
         animation: marquee 25s linear infinite forwards;
         li {
             display: inline-block;
-            text-transform: uppercase;
             color: #fff;
-            padding: 0 5vw;
-            border-right: 2px solid black;
+            padding: 0 1.5em;
         }
     }
 }

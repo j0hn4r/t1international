@@ -4,6 +4,7 @@
 {% get_signees as signees %}
 {% if signees %}
     <div class="{{ css_classes }}">
+        <p>Signees</p>
         <ul class="signee-marquee first">
             {% for signee in signees  %}
                 <li>{{ signee.name }}</li>
