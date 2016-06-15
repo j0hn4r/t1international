@@ -1055,6 +1055,9 @@ body.two-col & {
 }
 
 .glitter_page_blocktype_bannerblock {
+    display: flex;
+    flex-flow: row no-wrap;
+    justify-content: center;
     a {
         display: inline-block;
         text-align: center;
@@ -1209,14 +1212,11 @@ body.two-col & {
     .glitter_page_blocktype_bannerblock {
         overflow: hidden;
         margin-top: 5em;
-        display: table;
         margin: 0 auto 0 auto;
         padding: 2em 0 2em 0;
         width: 100%;
         max-width: 85em;
-        table-layout: fixed;
         a {
-            display: table-cell;
             width: 25%;
             box-sizing: border-box;
             &:not(:first-of-type) {
@@ -1242,6 +1242,9 @@ body.two-col & {
                 }
                 &:nth-of-type(-n+2) {
                     border-bottom: 2px solid @line;
+                }
+                &:nth-of-type(3):last-of-type {
+                    width: 100%;
                 }
             }
         }
