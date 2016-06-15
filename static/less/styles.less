@@ -758,20 +758,22 @@ body.two-col & {
             margin-left: -6em;
         }
     }
-    a:before {
-        content: '';
-        display: block;
-        position: absolute;
-        top: -1px; right: -1px; left: -1px; bottom: -1px;
-        background: fade(#fff, 10%);
-        z-index: 50;
-        pointer-events: none;
-        opacity: 0;
-        transition: opacity 0.3s;
+    .image-banner-grid & {
+        a:before {
+            content: '';
+            display: block;
+            position: absolute;
+            top: -1px; right: -1px; left: -1px; bottom: -1px;
+            background: fade(#fff, 10%);
+            z-index: 50;
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 0.3s;
 
-    }
-    a:hover:before {
-        opacity: 1;
+        }
+        a:hover:before {
+            opacity: 1;
+        }
     }
 }
 
