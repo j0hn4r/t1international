@@ -112,7 +112,7 @@ p { line-height: 1.5; }
     }
 }
 
-input:not([type="checkbox"]) {
+input:not([type="checkbox"]), textarea, .glitter_page_blocktype_contactformblock button[type="submit"] {
     appearance: none;
     font-family: 'Open sans', sans-serif;
     border: none;
@@ -121,13 +121,16 @@ input:not([type="checkbox"]) {
     font-size: 1.25em;
     border-radius: 0.25em;
     border: 2px solid @line;
+    resize: vertical;
     &:focus { outline: none; }
     &::-webkit-input-placeholder {
         color: @dark;
     }
 }
 
-input[type="submit"] {
+textarea { width: 100%; }
+
+input[type="submit"], .glitter_page_blocktype_contactformblock button[type="submit"] {
     background: @red;
     color: #fff;
     border: none;
@@ -135,6 +138,10 @@ input[type="submit"] {
         cursor: pointer;
         background: lighten(@red, 10%);
     }
+}
+
+.glitter_page_blocktype_contactformblock button[type="submit"] {
+    font-weight: bold;
 }
 
 .bg-img {
@@ -918,7 +925,7 @@ body.two-col & {
     }
 }
 
-.form {
+.form, .glitter_page_blocktype_contactformblock {
     background: @light-grey;
     font-size: 1.125em;
     padding: 3em 1em 2em 1em;
@@ -1009,6 +1016,13 @@ body.two-col & {
         font-style: italic;
         color: darken(@line,20%);
     }
+}
+
+.glitter_page_blocktype_contactformblock {
+    overflow: hidden;
+    padding: 0;
+    background: none;
+    button[type=submit] { float: right; }
 }
 
 .glitter_page_blocktype_billboard {
