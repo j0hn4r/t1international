@@ -22,7 +22,7 @@ class DonateFormMixin(object):
         self.helper.layout = Layout(
             Fieldset(
                 """
-                Lorem ipsum. Replace this textum.
+                My donation to T1International.
                 """,
                 'amount',
                 HTML(
