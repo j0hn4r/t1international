@@ -792,6 +792,7 @@ body.two-col & {
 }
 
 .glitter_page_blocktype_poster {
+    position: relative;
     overflow: hidden;
     .image-holder {
         position: absolute;
@@ -800,13 +801,16 @@ body.two-col & {
         z-index: -200;
     }
     .poster-callout {
-        width: 80vw;
-        max-width: 62em;
         margin: auto;
         text-align: center;
         font-weight: normal;
         color: #fff;
         margin: 7em auto 8em auto;
+        a { color: inherit; }
+        #glitter_column_billboard_top &, #glitter_column_footer, .image-banner-grid & {
+            width: 80vw;
+            max-width: 62em;
+        }
         body.home & {
             margin: 10em auto 12em auto;
         }
