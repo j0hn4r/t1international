@@ -403,6 +403,9 @@ input[type="submit"], .glitter_page_blocktype_contactformblock button[type="subm
                             }
                         }
                         &.active a { background: lighten(@dark, 10%); }
+                        &:not(:first-of-type) {
+                            border-top: 1px solid lighten(@dark, 10%);
+                        }
                     }
                 }
                 li {
