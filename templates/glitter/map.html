@@ -7,14 +7,8 @@
 {% block main %}
     <div id="map" style="height: 45vw; min-height: 440px; max-height: 700px;"></div>
 
-    <div class="page-wrapper">
-        <div class="content-col">
-            {{ columns.content }}
-        </div>
-
-        <div class="side-col">
-            {{ columns.sidebar }}
-        </div>
+    <div class="content">
+        {{ columns.content }}
     </div>
 
     {{ columns.footer }}
