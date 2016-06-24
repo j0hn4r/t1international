@@ -1,0 +1,11 @@
+{% extends "glitter_news/base_post_list.html" %}
+
+
+{% block title %}{{ current_category.title }} - {{ block.super }}{% endblock %}
+
+{% block news_title %}{{ current_category.title }}{% endblock %}
+
+
+{% block endhead %}
+    <link rel="alternate" type="application/rss+xml" title="T1International - {{ current_category.title }}" href="{% url 'glitter-news:category-feed' slug=current_category.slug %}" />
+{% endblock endhead %}

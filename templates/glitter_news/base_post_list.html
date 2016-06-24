@@ -1,0 +1,14 @@
+{% extends "glitter_news/base.html" %}
+
+
+{% block main %}
+    <h1>{% block news_title %}News{% endblock %}</h1>
+
+    {% for post in object_list %}
+        {% include "glitter_news/post_content.html" with post=post %}
+    {% empty %}
+        <p>No posts available.</p>
+    {% endfor %}
+
+    {% include "includes/pagination.html" %}
+{% endblock main %}

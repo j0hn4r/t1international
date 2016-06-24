@@ -44,3 +44,11 @@ class Map(PageLayout):
     billboard_top = columns.Column(width=1080)
     content = columns.Column(width=960)
     footer = columns.Column(width=960)
+
+
+@templates.attach('glitter_news.Post')
+class NewsPost(PageLayout):
+    content = columns.Column(width=960)
+
+    class Meta:
+        template = 'glitter_news/post_detail.html'

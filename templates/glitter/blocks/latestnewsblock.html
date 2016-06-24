@@ -1,0 +1,28 @@
+{% load news_tags thumbnail %}
+
+{% if object.category %}
+    {% get_latest_news 3 object.category.slug as latest_news %}
+{% else %}
+    {% get_latest_news 3 as latest_news %}
+{% endif %}
+
+{% if latest_news %}
+    <div class="{{ css_classes }}">
+        <div class="blog block-grid full-title">
+            {% if object.category %}
+                <h1 class="title"><a href="{{ object.category.get_absolute_url }}">{{ object.category.title }}</a></h1>
+            {% else %}
+                <h1 class="title"><a href="{% url 'glitter-news:list' %}">News</a></h1>
+            {% endif %}
+
+            <div class="block-holder">
+                {% for post in latest_news %}
+                    <div class="block">
+                        {% include "glitter_news/post_content.html" with post=post latest_news=True %}
+                    </div>
+                {% endfor %}
+                <div class="clear-fix"></div>
+            </div>
+        </div>
+    </div>
+{% endif %}

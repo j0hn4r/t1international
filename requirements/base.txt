@@ -35,3 +35,6 @@ requests==2.10.0
 
 # Pagination
 django-paginationlinks==0.1.1
+
+# News
+django-glitter-news==0.1.1

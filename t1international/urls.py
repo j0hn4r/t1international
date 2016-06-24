@@ -15,6 +15,9 @@ urlpatterns = [
 
     # Donations
     url(r'^donate/', include('donate.urls', namespace='donate')),
+
+    # News
+    url(r'^news/', include('glitter_news.urls', namespace='glitter-news')),
 ]
 
 # Make it easier to see a 404 page under debug

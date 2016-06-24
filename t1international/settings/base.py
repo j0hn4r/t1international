@@ -63,10 +63,10 @@ DEFAULT_APPS = [
 
 
 THIRD_PARTY_APPS = [
+    'adminsortable',
     'crispy_forms',
-    'raven.contrib.django.raven_compat',
+    'django_mptt_admin',
     'glitter',
-    'glitter.pages',
     'glitter.assets',
     'glitter.blocks.banner',
     'glitter.blocks.call_to_action',
@@ -75,11 +75,12 @@ THIRD_PARTY_APPS = [
     'glitter.blocks.image',
     'glitter.blocks.redactor',
     'glitter.blocks.video',
+    'glitter.pages',
+    'glitter_news',
     'mptt',
     'paginationlinks',
-    'django_mptt_admin',
+    'raven.contrib.django.raven_compat',
     'sorl.thumbnail',
-    'adminsortable',
 ]
 
 
