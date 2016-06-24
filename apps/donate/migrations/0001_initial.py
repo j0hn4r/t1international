@@ -3,7 +3,6 @@ from __future__ import unicode_literals
 
 from django.db import migrations, models
 import django.utils.timezone
-import donate.models
 
 
 class Migration(migrations.Migration):
@@ -26,7 +25,6 @@ class Migration(migrations.Migration):
             options={
                 'ordering': ('-created',),
             },
-            bases=(donate.models.OrderMixin, models.Model),
         ),
         migrations.CreateModel(
             name='Subscriber',
@@ -41,7 +39,6 @@ class Migration(migrations.Migration):
             options={
                 'ordering': ('-created',),
             },
-            bases=(donate.models.OrderMixin, models.Model),
         ),
         migrations.CreateModel(
             name='SubscriberPlan',
@@ -52,10 +49,6 @@ class Migration(migrations.Migration):
                 ('amount', models.DecimalField(decimal_places=2, unique=True, max_digits=9, help_text='Monthly amount')),
                 ('stripe_id', models.CharField(unique=True, max_length=100, verbose_name='Stripe ID')),
             ],
-            options={
-                'ordering': ['order'],
-                'abstract': False,
-            },
         ),
         migrations.AddField(
             model_name='subscriber',

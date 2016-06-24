@@ -1,6 +1,5 @@
 from __future__ import absolute_import
 
-from adminsortable.admin import SortableAdmin
 from django.contrib import admin
 
 from .models import Donation, Subscriber, SubscriberPlan
@@ -11,17 +10,20 @@ from .models import Donation, Subscriber, SubscriberPlan
 
 # @admin.register(Donation)
 class DonationAdmin(admin.ModelAdmin):
-    pass
+    list_display = ('id', 'email', 'amount', 'created')
+    list_filter = ('created',)
+    search_fields = ('email_address',)
+    date_hierarchy = 'created'
 
 
 # @admin.register(Subscriber)
 class SubscriberAdmin(admin.ModelAdmin):
-    list_display = ('id', 'email', 'created', 'success')
-    list_filter = ('success', 'created', 'plan')
+    list_display = ('id', 'email', 'created')
+    list_filter = ('created', 'plan')
     search_fields = ('email_address',)
     date_hierarchy = 'created'
 
 
 # @admin.register(SubscriberPlan)
-class SubscriberPlanAdmin(SortableAdmin):
+class SubscriberPlanAdmin(admin.ModelAdmin):
     pass

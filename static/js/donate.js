@@ -4,58 +4,31 @@ $().ready(function() {
     "use strict";
 
     var donate_modal = $("#donate-modal");
-    var donate_part1 = $("#donate-popup-1");
-    var donate_part2 = $("#donate-popup-2");
-    var paynow_button = $("#pay-now");
+    var donate_dialog = $("#donate-dialog");
+    var donate_form = $("#donate-form");
+    var donate_amount = donate_form.find("input[name='amount']");
     var donation_complete_form = $("#donation-complete-form");
     var stripe_handler;
-    var stripe_open;
     var stripe_load;
+
+    var stripe_open = {
+        "name": "T1International",
+        "image": donate_form.data("image"),
+        "billingAddress": true,
+        "shippingAddress": false
+    };
 
     var configure_stripe_handler = function(public_key) {
         stripe_handler = StripeCheckout.configure({
             key: public_key,
             token: function(token) {
+                // Submit the form to process the transaction on our server
                 donation_complete_form.find("input[name='token']").val(token.id);
                 donation_complete_form.find("input[name='email']").val(token.email);
                 donation_complete_form.submit();
             }
         });
     };
-
-    $("#donate-form").on("click", ".donate-button", function(event) {
-        event.preventDefault();
-
-        var url = $(this).data("url");
-        var form_data = $(this).closest("form").serialize();
-
-        var payment_request = $.ajax(url, {
-            type: "POST",
-            data: form_data,
-            dataType: "json"
-        });
-
-        payment_request.done(function(data) {
-            if (data.success === true) {
-                donation_complete_form.attr("action", data.complete_url);
-                donation_complete_form.find("input[name='obj']").val(data.id);
-                donation_complete_form.find("input[name='secret_key']").val(data.secret_key);
-
-                // Configure Stripe handler
-                stripe_load.done(function() {
-                    configure_stripe_handler(data.public_key);
-                    stripe_open = data.stripe_open;
-
-                    paynow_button.prop("disabled", false);
-                });
-
-                donate_part1.addClass("hidden");
-                donate_part2.removeClass("hidden");
-            } else if (data.success === false) {
-                $("#donate-form").html(data.form);
-            }
-        });
-    });
 
     donate_modal.on("show.bs.modal", function(event) {
         var target = $(event.relatedTarget);
@@ -74,17 +47,51 @@ $().ready(function() {
                 dataType: "script",
                 cache: true
             });
+            stripe_load.done(function() {
+                var public_key = donate_form.data("stripe");
+                configure_stripe_handler(public_key);
+                donate_dialog.removeClass("hidden");
+            });
         }
-
-        // Reset any bits needed
-        donate_part1.removeClass("hidden");
-        donate_part2.addClass("hidden");
-        paynow_button.prop("disabled", true);
     });
 
-    paynow_button.on("click", function(event) {
+    $("#donate-form").on("click", ".donate-onetime", function(event) {
         event.preventDefault();
+
+        var complete_url = $(this).data("url");
+        var donate_pounds = parseInt(donate_amount.val(), 10);
+        var donate_pence = donate_pounds * 100;
+
+        donation_complete_form.attr("action", complete_url);
+        donation_complete_form.find("input[name='amount']").val(donate_pounds);
+
+        // Setup a one time donation
+        var donate_stripe_open = $.extend({}, stripe_open, {
+             "description": "Donation - £" + donate_pounds,
+             "amount": donate_pence,
+             "currency": "GBP"
+        });
+
         donate_modal.modal("hide");
-        stripe_handler.open(stripe_open);
+        stripe_handler.open(donate_stripe_open);
+    });
+
+    $("#donate-form").on("click", ".donate-monthly", function(event) {
+        event.preventDefault();
+
+        var complete_url = $(this).data("url");
+        var donate_pounds = parseInt(donate_amount.val(), 10);
+
+        donation_complete_form.attr("action", complete_url);
+        donation_complete_form.find("input[name='amount']").val(donate_pounds);
+
+        // Setup a recurring monthly payment
+        var donate_stripe_open = $.extend({}, stripe_open, {
+             "description": "£" + donate_pounds + " Monthly Donation",
+             "panelLabel": "Subscribe"
+        });
+
+        donate_modal.modal("hide");
+        stripe_handler.open(donate_stripe_open);
     });
 });
