@@ -76,6 +76,7 @@ THIRD_PARTY_APPS = [
     'glitter.blocks.redactor',
     'glitter.blocks.video',
     'mptt',
+    'paginationlinks',
     'django_mptt_admin',
     'sorl.thumbnail',
     'adminsortable',

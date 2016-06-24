@@ -1,0 +1,30 @@
+{% load pagination_links %}
+
+{% if page_obj.has_other_pages %}
+    {% get_pagination_links paginator page_obj as pagination_links %}
+    <div class="pagination">
+        {% if page_obj.has_previous %}
+            <a href="?page={{ page_obj.previous_page_number }}" class="back">Back</a>
+        {% else %}
+            <span class="back disabled">Back</span>
+        {% endif %}
+
+        <span>
+            {% for page_num in pagination_links %}
+                {% if page_num.is_current %}
+                    <span>{{ page_num.number }}</span>
+                {% elif page_num.is_filler %}
+                    &hellip;
+                {% else %}
+                    <a href="?page={{ page_num.number }}">{{ page_num.number }}</a>
+                {% endif %}
+            {% endfor %}
+        </span>
+
+        {% if page_obj.has_next %}
+            <a href="?page={{ page_obj.next_page_number }}" class="next">Next</a>
+        {% else %}
+            <span class="next disabled">Next</span>
+        {% endif %}
+    </div>
+{% endif %}
