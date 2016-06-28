@@ -1,14 +1,34 @@
 {% extends "glitter_news/base.html" %}
+{% load news_tags %}
 
+
+{% block body_class %}page two-col{% endblock body_class %}
 
 {% block main %}
-    <h1>{% block news_title %}News{% endblock %}</h1>
+    <div class="page-wrapper" id="news-list">
+        <div class="content-col">
+            <h1>{% block news_title %}News{% endblock %}</h1>
 
-    {% for post in object_list %}
-        {% include "glitter_news/post_content.html" with post=post %}
-    {% empty %}
-        <p>No posts available.</p>
-    {% endfor %}
+            {% for post in object_list %}
+                {% include "glitter_news/post_content.html" with post=post %}
+            {% empty %}
+                <p>No posts available.</p>
+            {% endfor %}
 
-    {% include "includes/pagination.html" %}
+            {% include "includes/pagination.html" %}
+        </div>
+
+        <div class="side-col">
+            <div class="news-categories">
+                {% get_news_categories as news_categories %}
+                <h3>Categories</h3>
+                <ul>
+                    {% for category in news_categories  %}
+                        <li><a href="category.get_absolute_url" class='{% if i == category or i == object.category %} class="active"{% endif %}'>{{ category }}</a></li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+
 {% endblock main %}

@@ -2,13 +2,13 @@
 
 
 {% block title %}{{ object.title }} - {{ block.super }}{% endblock %}
-
-
-{% block endhead %}
-    <link rel="alternate" type="application/rss+xml" title="T1International - {{ object.category.title }}" href="{% url 'glitter-news:category-feed' slug=object.category.slug %}" />
-{% endblock endhead %}
+{% block body_class %}page single-col{% endblock %}
 
 
 {% block main %}
-    {% include "glitter_news/post_content.html" with post=post glitter=True %}
+    <div class="page-wrapper">
+        <div class="content news-detail">
+            {% include "glitter_news/post_content.html" with post=post glitter=True %}
+        </div>
+    </div>
 {% endblock main %}
