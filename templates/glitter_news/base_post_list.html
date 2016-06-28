@@ -24,7 +24,7 @@
                 <h3>Categories</h3>
                 <ul>
                     {% for category in news_categories  %}
-                        <li><a href="category.get_absolute_url" class='{% if i == category or i == object.category %} class="active"{% endif %}'>{{ category }}</a></li>
+                        <li><a href="{{ category.get_absolute_url }}" class='{% if i == category or i == object.category %} class="active"{% endif %}'>{{ category }}</a></li>
                     {% endfor %}
                 </ul>
             </div>
