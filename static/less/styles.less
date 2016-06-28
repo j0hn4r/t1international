@@ -1439,12 +1439,22 @@ body.two-col & {
                 float: right;
                 :last-child { margin-bottom: 0; }
             }
+            @media all and (max-width: @responsive-md) {
+                .post-image { width: 80px; }
+                .details { width: calc(100% ~"-" 80px); }
+            }
+             @media all and (max-width: @responsive-xs) {
+                .post-image { display: none; }
+                .details { width: 100%; padding-left: 0; }
+            }
         }
     }
 }
 
 .news-detail, #news-list {
-    margin-bottom: 4em;
+    @media all and (min-width: (@responsive-xl + 1)) {
+        margin-bottom: 4em;
+    }
 }
 
 .news-categories {
@@ -1454,6 +1464,9 @@ body.two-col & {
         color: @blue;
         font-weight: bold;
         text-decoration: none;
+    }
+    @media all and (max-width: @responsive-xl) {
+        border-bottom: 2px solid @line;
     }
 }
 
