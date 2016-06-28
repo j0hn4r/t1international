@@ -1485,6 +1485,24 @@ body.two-col & {
     }
 }
 
+.pagination {
+    margin-top: 2em;
+    border-top: 2px solid @light-grey;
+    padding-top: 1em;
+    text-align: center;
+    a, .active {
+        color: @blue;
+        font-weight: bold;
+        text-decoration: none;
+    }
+    .back { float: left; }
+    .next { float: right; }
+    .disabled {
+        color: @line;
+        &:hover { cursor: default; }
+    }
+}
+
 
 
 //////////////////////    MODAL        /////////////////////
