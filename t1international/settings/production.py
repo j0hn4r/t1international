@@ -24,6 +24,7 @@ TEMPLATES = [
                 'django.template.context_processors.tz',
                 'django.template.context_processors.request',
                 'django.contrib.messages.context_processors.messages',
+                'footer.context_processors.links',
             ],
             'loaders': [
                 ('django.template.loaders.cached.Loader', [
