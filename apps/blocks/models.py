@@ -30,5 +30,10 @@ class Poster(BaseBlock):
     content = models.TextField()
 
 
+class VideoBanner(BaseBlock):
+    background_video = AssetForeignKey('glitter_assets.File', null=True, blank=True)
+    content = models.TextField()
+
+
 class Signees(BaseBlock):
     pass
