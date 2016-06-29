@@ -7,7 +7,7 @@
 {% block main %}
     <div class="page-wrapper" id="news-list">
         <div class="content-col">
-            <h1>{% block news_title %}News{% endblock %}</h1>
+            <h1 class="list-title">{% block news_title %}News{% endblock %}</h1>
 
             {% for post in object_list %}
                 {% include "glitter_news/post_content.html" with post=post %}

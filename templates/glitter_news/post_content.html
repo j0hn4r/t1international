@@ -7,18 +7,18 @@
         {% endthumbnail %}
 
         <div class="details">
-            <h1 class="clear-fix"><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></h1>
+            <h3 class="clear-fix"><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></h3>
             <h5 class="post-date">{{ post.date }} in <a href="{{ post.category.get_absolute_url }}">{{ post.category }}</a>{% if post.author %} by {{ post.author }}{% endif %}</h5>
 
             {{ columns.content }}
         </div>
     {% else %}
         {% thumbnail post.image.file "240x240" crop="center" as thumb %}
-            <a href="{{ post.get_absolute_url }}"><img class="post-image" src="{{ thumb.url }}" width="{{ thumb.width }}" height="{{ thumb.height }}" alt="{{ post.title }}"></a>
+            <a href="{{ post.get_absolute_url }}" class="img-link"><img class="post-image" src="{{ thumb.url }}" width="{{ thumb.width }}" height="{{ thumb.height }}" alt="{{ post.title }}"></a>
         {% endthumbnail %}
 
         <div class="details">
-            <h1 class="clear-fix post-list-title"><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></h1>
+            <h3 class="clear-fix post-list-title"><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></h3>
             <h5 class="post-date">{{ post.date }} in <a href="{{ post.category.get_absolute_url }}">{{ post.category }}</a>{% if post.author %} by {{ post.author }}{% endif %}</h5>
             <p class="post-summary">
                 {% if latest_news %}
