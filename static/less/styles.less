@@ -68,6 +68,10 @@ h2 { font-size: 2.125em; }
 h3 { font-size: 1.75em; }
 p { line-height: 1.5; }
 
+@media all and (max-width: @responsive-xs) {
+    h1 { font-size: 1.75em; }
+}
+
 .absolute-center {
     position: absolute;
     top: 50%; left: 50%;
@@ -204,6 +208,9 @@ input[type="submit"], .glitter_page_blocktype_contactformblock button[type="subm
     }
     a.youtube {
         &:after { content: "\e905"; }
+    }
+    @media all and (max-width: @responsive-xs) {
+        a { height: 30px; width: 50px; }
     }
 }
 
@@ -652,6 +659,9 @@ body.two-col & {
             h4 { display: inline-block; }
         }
     }
+    @media all and (max-width: @responsive-xs) {
+        font-size: 1em;
+    }
 }
 
 .glitter_page_blocktype_blockquote {
@@ -789,6 +799,7 @@ body.two-col & {
         width: 100%;
         text-align: center;
     }
+    @media all and (max-width: @responsive-xs) { margin: 2em; }
 }
 
 .glitter_page_blocktype_poster, .glitter_page_blocktype_videobanner {
@@ -813,6 +824,9 @@ body.two-col & {
         }
         body.home & {
             margin: 10em auto 12em auto;
+            @media all and (max-width: @responsive-xs) {
+                margin: 5em auto 9em auto;
+            }
         }
         body.page & {
             @media all and (min-width: (@responsive-md + 1)) {
@@ -839,6 +853,9 @@ body.two-col & {
         }
     }
     h3 { font-size: 2.375em; }
+    @media all and (max-width: @responsive-xs) {
+        h2 { font-size: 2.75em; }
+    }
 }
 
 .glitter_page_blocktype_signees {
@@ -1284,6 +1301,13 @@ body.two-col & {
             }
         }
     }
+    @media all and (max-width: @responsive-xs) {
+        .column-50 {
+            max-height: none;
+            padding: 2em 1em;
+            .glitter_page_blocktype_redactor { margin: 0; }
+        }
+    }
 }
 
 #glitter_column_footer, #glitter_column_billboard_middle {
@@ -1334,6 +1358,9 @@ body.two-col & {
                     border-bottom: 2px solid @line !important;
                 }
             }
+        }
+        @media all and (max-width: @responsive-xs){
+            a { padding: 2em 1em; }
         }
     }
 }
