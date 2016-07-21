@@ -33,7 +33,7 @@ class DonationForm(forms.Form):
         self.helper.layout = Layout(
             Fieldset(
                 """
-                My donation to T1International.
+                My donation to T1International
                 """,
                 'amount',
                 HTML(
