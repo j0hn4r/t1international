@@ -666,7 +666,7 @@ body.two-col & {
     }
 }
 
-.glitter_page_blocktype_blockquote {
+.glitter_page_blocktype_blockquote, blockquote {
     margin: 0;
     font-family: 'Pimpernel';
     color: #fff;
@@ -674,6 +674,7 @@ body.two-col & {
     text-align: center;
     box-sizing: border-box;
     padding: 0.762em;
+    background: @blue;
     p:first-of-type {
         margin: 0.5em 0 0 0;
     }
@@ -694,6 +695,11 @@ body.two-col & {
     &.dark-green {background: @dark-green; .citation { color: lighten(@dark-green, 15%); }}
     &.green {background: @green; .citation { color: lighten(@green, 15%); }}
     &.yellow {background: @yellow; .citation { color: lighten(@yellow, 15%); }}
+}
+
+blockquote {
+    font-size: 2.325em;
+    padding: 0.675em;
 }
 
 .glitter_page_blocktype_faq {
