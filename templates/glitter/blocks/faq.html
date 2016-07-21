@@ -2,7 +2,7 @@
     <div class="{{ css_classes }}">
         <label for="faq{{ object.id }}">{{ object.question}}</label>
         <input type="checkbox" id="faq{{ object.id }}" class="hidden">
-        <p class="hidden">{{ object.answer }}</p>
+        <p class="hidden">{{ object.answer|safe }}</p>
         <div class="status"></div>
     </div>
 {% endif %}
