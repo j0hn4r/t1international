@@ -902,81 +902,32 @@ blockquote {
     position: relative;
     .donation-panel {
         position: absolute;
+        bottom: 0;
         left: 50%; bottom: -5em;
-        transform: translateX(-50%);
-        -ms-transform: translateX(-50%);
+        transform: translate(-50%, -65%);
+        -ms-transform: translate(-50%, -65%);
         width: 25em;
-        height: 9.375em;
         z-index: 200;
         text-align: center;
         color: #fff;
         h3 {
             height: 2.5em;
             background: @red;
-            border-top-right-radius: 0.25em;
-            border-top-left-radius: 0.25em;
+            border-radius: 0.25em;
             box-sizing: border-box;
             margin: 0;
-            padding-top: 0.6em;
             font-weight: bold;
         }
-        ul {
-            .remove-list-style;
-            li {
-                display: inline-block;
-                width: 25%;
-                height: 4.3em;
-                float: left;
-                &:first-of-type { border-bottom-left-radius: 0.25em; }
-                &:last-of-type { border-bottom-right-radius: 0.25em; }
-                &:nth-of-type(1) {
-                    background: @purple;
-                    &:hover { background: lighten(@purple, 5%); }
-                }
-                &:nth-of-type(2) {
-                    background: @blue;
-                    &:hover { background: lighten(@blue, 5%); }
-                }
-                &:nth-of-type(3) {
-                    background: @green;
-                    &:hover { background: lighten(@green, 5%); }
-                }
-                &:nth-of-type(4) {
-                    background: @yellow;
-                    position: relative;
-                    &:hover { background: lighten(@yellow, 5%); }
-                    &:before {
-                        content: "$";
-                        display: block;
-                        position: absolute;
-                        left: 0.5em; top: 0.6em;
-                        font-size: 1.75em;
-                        font-weight: bold;
-                        pointer-events: none;
-                    }
-                    &:after {
-                        content: "";
-                        display: block;
-                        height: 3px;
-                        width: 50%;
-                        background: #fff;
-                        position: absolute;
-                        bottom: 1.35em;
-                        left: 2em;
-                    }
-                }
-                a {
-                    width: 100%;
-                    height: 1.87em;
-                    text-decoration: none;
-                    color: #fff;
-                    padding-top: 0.6em;
-                    display: inline-block;
-                    background: none;
-                    font-size: 1.75em;
-                    font-weight: bold;
-                }
-            }
+        a {
+            width: 100%;
+            height: 1.87em;
+            text-decoration: none;
+            color: #fff;
+            padding-top: 0.6em;
+            display: inline-block;
+            background: none;
+            font-size: 1em;
+            font-weight: bold;
         }
         @media all and (max-width: @responsive-xs) {
             width: 100%;
