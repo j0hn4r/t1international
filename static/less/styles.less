@@ -195,6 +195,7 @@ input[type="submit"], .glitter_page_blocktype_contactformblock button[type="subm
             .icon;
             color: @dark;
         }
+        &:hover:after { color: @red; }
     }
     a.facebook {
         &:after { content: "\e900"; }
@@ -310,7 +311,7 @@ input[type="submit"], .glitter_page_blocktype_contactformblock button[type="subm
             float: right;
             li {
                 display: inline-block;
-                &.active a { color: @blue; }
+                &.active a, &:hover a { color: @blue; }
                 &:not(:first-of-type) {
                     border-left: 2px solid @light-grey;
                 }
@@ -487,7 +488,7 @@ input[type="submit"], .glitter_page_blocktype_contactformblock button[type="subm
             text-decoration: none;
             color: #fff;
             padding: 0 0.5em;
-            &.active {
+            &.active, &:hover {
                 color: @blue;
             }
         }
@@ -928,12 +929,22 @@ blockquote {
                 float: left;
                 &:first-of-type { border-bottom-left-radius: 0.25em; }
                 &:last-of-type { border-bottom-right-radius: 0.25em; }
-                &:nth-of-type(1) { background: @purple; }
-                &:nth-of-type(2) { background: @blue; }
-                &:nth-of-type(3) { background: @green; }
+                &:nth-of-type(1) {
+                    background: @purple;
+                    &:hover { background: lighten(@purple, 5%); }
+                }
+                &:nth-of-type(2) {
+                    background: @blue;
+                    &:hover { background: lighten(@blue, 5%); }
+                }
+                &:nth-of-type(3) {
+                    background: @green;
+                    &:hover { background: lighten(@green, 5%); }
+                }
                 &:nth-of-type(4) {
                     background: @yellow;
                     position: relative;
+                    &:hover { background: lighten(@yellow, 5%); }
                     &:before {
                         content: "$";
                         display: block;
@@ -1413,6 +1424,7 @@ blockquote {
         padding: 1.25em 0 1.25em 0;
         border-top: 2px solid @line;
         position: relative;
+        a:hover { color: @red; }
         @media all and (min-width: (@responsive-lg + 1)) {
             .social-icons {
                 position: absolute;
@@ -1462,6 +1474,7 @@ blockquote {
         color: @blue;
         font-weight: bold;
         text-decoration: none;
+        &:hover { color: lighten(@blue, 5%); }
     }
     + .post {
         border-top: 2px solid @light-grey;
