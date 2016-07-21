@@ -353,7 +353,7 @@ input[type="submit"], .glitter_page_blocktype_contactformblock button[type="subm
             li { float: none; }
         }
 
-        label[for='primary-nav'] { display: block; }
+        label[for='primary-nav'] { display: block; span { display: none; } }
         .primary li:nth-last-of-type(1) {
             display: none;
         }
@@ -396,6 +396,10 @@ input[type="submit"], .glitter_page_blocktype_contactformblock button[type="subm
     @media all and (max-width: @responsive-md) {
         padding-bottom: 0;
         .primary { display: none; }
+        label[for='primary-nav'] span {
+            display: inline-block;
+            font-weight: bold;
+        }
         .mobile {
             overflow: hidden;
             clear: both;
@@ -449,7 +453,7 @@ input[type="submit"], .glitter_page_blocktype_contactformblock button[type="subm
         .btn {
             position: static;
             font-size: 1.125em;
-            margin: -0.25em 1em 2.25em 0;
+            margin: -0.25em 3.325em 2.25em 0;
             padding: 0.75em 1em;
             font-weight: normal;
             float: right;
@@ -466,7 +470,7 @@ input[type="submit"], .glitter_page_blocktype_contactformblock button[type="subm
             margin-left: -1em;
         }
         .btn {
-            margin: 0.65em 1.75em 1.625em;
+            margin: 0.65em 4.125em 1.625em;
         }
         label[for='primary-nav'] {
             top: 2em;
@@ -524,7 +528,7 @@ label[for='primary-nav'] {
     display: none;
     &:before {
         content: '⋮';
-        display: block;
+        display: inline-block;
         width: 31px;
         height: 31px;
         line-height: 31px;
