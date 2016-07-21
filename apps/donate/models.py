@@ -55,8 +55,8 @@ class SubscriberPlan(models.Model):
             obj = SubscriberPlan(amount=amount)
 
             # Let the field format things appropriately
-            obj.title = '£%s Monthly Donation' % (obj.amount,)
-            obj.stripe_id = '%d-GBP-MONTHLY-DONATION' % (obj.amount_pence,)
+            obj.title = '%s%s Monthly Donation' % (settings.DONATE_SYMBOL, obj.amount)
+            obj.stripe_id = '%d-%s-MONTHLY-DONATION' % (obj.amount_pence, settings.DONATE_CURRENCY)
 
             # Create the plan in Stripe first
             stripe.Plan.create(
@@ -64,7 +64,7 @@ class SubscriberPlan(models.Model):
                 amount=obj.amount_pence,
                 interval='month',
                 name=obj.title,
-                currency='GBP',
+                currency=settings.DONATE_CURRENCY,
                 id=obj.stripe_id)
 
             # Then save it

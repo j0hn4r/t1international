@@ -50,7 +50,7 @@ class DonateCompleteView(BaseCompleteView):
         stripe.Charge.create(
             api_key=settings.STRIPE_SECRET_KEY,
             amount=obj.amount_pence,
-            currency='GBP',
+            currency=settings.DONATE_CURRENCY,
             customer=customer,
             description='Donation')
 
