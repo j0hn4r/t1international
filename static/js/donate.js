@@ -6,6 +6,8 @@ $().ready(function() {
     var donate_modal = $("#donate-modal");
     var donate_dialog = $("#donate-dialog");
     var donate_form = $("#donate-form");
+    var donate_currency = donate_form.data("currency");
+    var donate_symbol = donate_form.data("symbol");
     var donate_amount = donate_form.find("input[name='amount']");
     var donation_complete_form = $("#donation-complete-form");
     var stripe_handler;
@@ -67,9 +69,9 @@ $().ready(function() {
 
         // Setup a one time donation
         var donate_stripe_open = $.extend({}, stripe_open, {
-             "description": "Donation - £" + donate_pounds,
+             "description": "Donation - " + donate_symbol + donate_pounds,
              "amount": donate_pence,
-             "currency": "GBP"
+             "currency": donate_currency
         });
 
         donate_modal.modal("hide");
@@ -87,7 +89,7 @@ $().ready(function() {
 
         // Setup a recurring monthly payment
         var donate_stripe_open = $.extend({}, stripe_open, {
-             "description": "£" + donate_pounds + " Monthly Donation",
+             "description": donate_symbol + donate_pounds + " Monthly Donation",
              "panelLabel": "Subscribe"
         });
 

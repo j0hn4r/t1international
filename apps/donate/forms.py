@@ -27,6 +27,8 @@ class DonationForm(forms.Form):
         self.helper.attrs = {
             'data-stripe': settings.STRIPE_PUBLIC_KEY,
             'data-image': staticfiles_storage.url('img/stripe.png'),
+            'data-currency': settings.DONATE_CURRENCY,
+            'data-symbol': settings.DONATE_SYMBOL,
         }
         self.helper.layout = Layout(
             Fieldset(
