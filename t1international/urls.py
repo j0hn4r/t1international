@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+from __future__ import unicode_literals
 
 from django.conf import settings
 from django.conf.urls import include, url
@@ -17,7 +18,7 @@ urlpatterns = [
     url(r'^donate/', include('donate.urls', namespace='donate')),
 
     # News
-    url(r'^news/', include('glitter_news.urls', namespace='glitter-news')),
+    url(r'^blog/', include('glitter_news.urls', namespace='glitter-news')),
 ]
 
 # Make it easier to see a 404 page under debug
