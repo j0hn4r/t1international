@@ -12,7 +12,7 @@ from .models import Donation, Subscriber, SubscriberPlan
 
 
 class DonationForm(forms.Form):
-    amount = forms.IntegerField(min_value=1)
+    amount = forms.IntegerField(min_value=1, label="Choose your donation amount")
 
     def __init__(self, *args, **kwargs):
         super(DonationForm, self).__init__(*args, **kwargs)

@@ -37,7 +37,7 @@ $().ready(function() {
         var amount = target.data("amount");
 
         if (amount === undefined) {
-            amount = 20;
+            amount = 50;
         }
 
         $("#id_amount").val(amount);
