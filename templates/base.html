@@ -38,7 +38,7 @@
         <header class="head">
             <a href="/"><div class="logo pull-left"></div></a>
             <input type="checkbox" name="primary-nav" class="hidden" id="primary-nav" />
-            <label for="primary-nav"><span>Menu</span></label>
+            <label for="primary-nav" id="menu-toggle-btn"><span>Menu</span></label>
             <a href="/donate" class="btn small">Donate</a>
             {% block primary_navigation %}
                 {% primary_navigation page=glitter.obj %}
@@ -72,6 +72,11 @@
                 "use strict";
 
                 $(".selectric").selectric();
+                $('#menu-toggle-btn').on('click', function() {
+                    if($(window).width() <= 760) {
+                        $('.secondary').toggleClass('menu-open');
+                    }
+                });
             });
         </script>
 
