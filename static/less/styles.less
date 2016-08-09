@@ -716,24 +716,21 @@ blockquote {
     position: relative;
     p { margin-bottom: 0; }
     &:last-child { margin-bottom: 2em; }
-    .status:after {
-        .icon;
-        content: '\e906';
-        display: inline-block;
-        background: @light-grey;
-        border-radius: 0.25em;
+    .status {
         position: absolute;
         top: 1.75em;
         right: 0;
-        width: 30px;
-        height: 30px;
-        text-align: center;
-        font-size: 1em;
-        line-height: 1.925;
-    }
-    &:first-of-type {
-        .status:after {
-            top: 4.825em;
+        &:after {
+            .icon;
+            content: '\e906';
+            display: inline-block;
+            background: @light-grey;
+            border-radius: 0.25em;
+            width: 30px;
+            height: 30px;
+            text-align: center;
+            font-size: 1em;
+            line-height: 1.925;
         }
     }
     + .glitter_page_blocktype_faq {
@@ -752,7 +749,7 @@ blockquote {
         padding-right: 2em;
         &:hover { cursor: pointer; }
     }
-    input[type=checkbox]:checked + p {
+    input[type=checkbox]:checked + .hidden {
         display: block;
         + .status:after { content: '\e911'; }
     }
