@@ -1,14 +1,14 @@
-Django==1.8.13
-Pillow==3.2.0
+Django==1.8.14
+Pillow==3.3.0
 dj-database-url==0.4.1
-psycopg2==2.6.1
+psycopg2==2.6.2
 pylibmc==1.5.1
-pytz==2016.4
-raven==5.21.0
+pytz==2016.6.1
+raven==5.24.3
 
 # Storage
 django-storages==1.4.1
-boto==2.40.0
+boto==2.42.0
 blanc-contentfiles==0.2.3
 
 # Admin theme
@@ -19,8 +19,8 @@ sorl-thumbnail==12.3
 
 # Glitter
 django-glitter==0.1.7
-django-mptt==0.8.4
-django-mptt-admin==0.3.7
+django-mptt==0.8.5
+django-mptt-admin==0.4.0
 six==1.10.0
 
 # Sortable
@@ -31,7 +31,7 @@ django-crispy-forms==1.6.0
 
 # Donations
 stripe==1.33.0
-requests==2.10.0
+requests==2.11.0
 
 # Pagination
 django-paginationlinks==0.1.1

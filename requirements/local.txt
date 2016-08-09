@@ -1,7 +1,7 @@
 -r base.txt
 
-django-debug-toolbar==1.4
-Fabric==1.11.1 ; python_version == '2.7'
-django-extensions==1.6.7
+django-debug-toolbar==1.5
+Fabric==1.12.0 ; python_version == '2.7'
+django-extensions==1.7.0
 coverage==4.0.3
-awscli==1.10.40
+awscli==1.10.53
