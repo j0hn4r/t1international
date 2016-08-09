@@ -14,6 +14,8 @@ class Donation(models.Model):
     amount = models.DecimalField(max_digits=9, decimal_places=2)
     email = models.EmailField(db_index=True)
     created = models.DateTimeField(default=timezone.now, db_index=True)
+    no_donating_email = models.BooleanField(default=False)
+    no_updates_email = models.BooleanField(default=False)
 
     class Meta:
         ordering = ('-created',)
@@ -78,6 +80,8 @@ class Subscriber(models.Model):
     plan = models.ForeignKey(SubscriberPlan)
     email = models.EmailField(db_index=True)
     created = models.DateTimeField(default=timezone.now, db_index=True)
+    no_donating_email = models.BooleanField(default=False)
+    no_updates_email = models.BooleanField(default=False)
 
     class Meta:
         ordering = ('-created',)

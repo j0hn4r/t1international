@@ -67,6 +67,10 @@ $().ready(function() {
         donation_complete_form.attr("action", complete_url);
         donation_complete_form.find("input[name='amount']").val(donate_pounds);
 
+        // Update tickboxes
+        donation_complete_form.find("input[name='no_donating_email']").prop("checked", $("#id_no_donating_email").prop("checked"));
+        donation_complete_form.find("input[name='no_updates_email']").prop("checked", $("#id_no_updates_email").prop("checked"));
+
         // Setup a one time donation
         var donate_stripe_open = $.extend({}, stripe_open, {
              "description": "Donation - " + donate_symbol + donate_pounds,
@@ -86,6 +90,10 @@ $().ready(function() {
 
         donation_complete_form.attr("action", complete_url);
         donation_complete_form.find("input[name='amount']").val(donate_pounds);
+
+        // Update tickboxes
+        donation_complete_form.find("input[name='no_donating_email']").prop("checked", $("#id_no_donating_email").prop("checked"));
+        donation_complete_form.find("input[name='no_updates_email']").prop("checked", $("#id_no_updates_email").prop("checked"));
 
         // Setup a recurring monthly payment
         var donate_stripe_open = $.extend({}, stripe_open, {

@@ -36,6 +36,12 @@ class BaseCompleteView(FormView):
     def form_invalid(self, form):
         return redirect('donate:donate-failed')
 
+    def customer_metadata(self, obj):
+        return {
+            'no_donating_email': obj.no_donating_email,
+            'no_updates_email': obj.no_updates_email,
+        }
+
 
 class DonateCompleteView(BaseCompleteView):
     form_class = DonationCompleteForm
@@ -44,7 +50,8 @@ class DonateCompleteView(BaseCompleteView):
         customer = stripe.Customer.create(
             api_key=settings.STRIPE_SECRET_KEY,
             source=token,
-            email=obj.email)
+            email=obj.email,
+            metadata=self.customer_metadata(obj=obj))
 
         # One-off charge
         stripe.Charge.create(
@@ -62,7 +69,8 @@ class SubscribeCompleteView(BaseCompleteView):
         customer = stripe.Customer.create(
             api_key=settings.STRIPE_SECRET_KEY,
             source=token,
-            email=obj.email)
+            email=obj.email,
+            metadata=self.customer_metadata(obj=obj))
 
         # Recurring subscription
         stripe.Subscription.create(

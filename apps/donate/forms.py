@@ -12,7 +12,15 @@ from .models import Donation, Subscriber, SubscriberPlan
 
 
 class DonationForm(forms.Form):
-    amount = forms.IntegerField(min_value=1, label="Choose your donation amount")
+    amount = forms.IntegerField(min_value=1, label='Choose your donation amount')
+    no_donating_email = forms.BooleanField(
+        label='Tick if you DO NOT want to receive further communications about donating',
+        required=False)
+    no_updates_email = forms.BooleanField(
+        label=(
+            'Tick if you DO NOT want to receive general information and updates from '
+            'T1International.'),
+        required=False)
 
     def __init__(self, *args, **kwargs):
         super(DonationForm, self).__init__(*args, **kwargs)
@@ -35,7 +43,7 @@ class DonationForm(forms.Form):
                 """
                 My donation to T1International
                 """,
-                'amount',
+                'amount', 'no_donating_email', 'no_updates_email',
                 HTML(
                     """
                     <button type="submit" class="donate-button donate-onetime" data-url="{}">
@@ -53,7 +61,7 @@ class DonationForm(forms.Form):
 class DonationCompleteForm(forms.ModelForm):
     class Meta:
         model = Donation
-        fields = ('amount', 'email', 'token')
+        fields = ('amount', 'email', 'token', 'no_donating_email', 'no_updates_email')
 
     token = forms.CharField(widget=forms.HiddenInput)
 
@@ -61,7 +69,7 @@ class DonationCompleteForm(forms.ModelForm):
 class SubscriberCompleteForm(forms.ModelForm):
     class Meta:
         model = Subscriber
-        fields = ('email',)
+        fields = ('email', 'no_donating_email', 'no_updates_email')
 
     amount = forms.IntegerField(min_value=1)
     token = forms.CharField(widget=forms.HiddenInput)
