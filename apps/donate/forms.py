@@ -14,7 +14,7 @@ from .models import Donation, Subscriber, SubscriberPlan
 class DonationForm(forms.Form):
     amount = forms.IntegerField(min_value=1, label='Choose your donation amount')
     no_donating_email = forms.BooleanField(
-        label='Tick if you DO NOT want to receive further communications about donating',
+        label='Tick if you DO NOT want to receive further communications about donating.',
         required=False)
     no_updates_email = forms.BooleanField(
         label=(
