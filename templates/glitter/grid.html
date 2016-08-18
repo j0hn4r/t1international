@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+
+
+{% block title %}{{ glitter.obj.title }} - {{ block.super }}{% endblock %}
+
+{% block body_class %}home{% endblock body_class %}
+
+{% block main %}
+    <div class="jumbotron">
+        {{ columns.billboard_top }}
+
+    </div>
+
+    <div class="image-banner-grid">
+        <div class="column-25">
+            {{ columns.grid_cell_one }}
+        </div>
+        <div class="column-50">
+            {{ columns.grid_cell_two }}
+        </div>
+        <div class="column-25">
+            {{ columns.grid_cell_three }}
+        </div>
+    </div>
+    <div class="image-banner-grid">
+        <div class="column-50">
+            {{ columns.grid_cell_four }}
+        </div>
+        <div class="column-25">
+            {{ columns.grid_cell_five }}
+        </div>
+        <div class="column-25">
+            {{ columns.grid_cell_six }}
+        </div>
+    </div>
+    <div class="image-banner-grid">
+        <div class="column-25">
+            {{ columns.grid_cell_seven }}
+        </div>
+        <div class="column-50">
+            {{ columns.grid_cell_eight }}
+        </div>
+        <div class="column-25">
+            {{ columns.grid_cell_nine }}
+        </div>
+    </div>
+    <div class="image-banner-grid">
+        <div class="column-50">
+            {{ columns.grid_cell_ten }}
+        </div>
+        <div class="column-25">
+            {{ columns.grid_cell_eleven }}
+        </div>
+        <div class="column-25">
+            {{ columns.grid_cell_twelve }}
+        </div>
+    </div>
+
+    {{ columns.content }}
+
+    {{ columns.footer }}
+
+{% endblock main %}
