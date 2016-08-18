@@ -811,17 +811,17 @@ blockquote {
 
 .glitter_page_blocktype_poster, .glitter_page_blocktype_videobanner {
     overflow: hidden;
+    position: relative;
     .poster-callout {
         margin: auto;
         font-weight: normal;
         color: #fff;
         position: relative;
-        max-height: 600px;
         a { color: inherit; }
-        img, video { width: 100%; height: auto; }
+        img, video { width: 100%; height: auto; vertical-align: top; }
         body.page & {
             @media all and (min-width: (@responsive-md + 1)) { h1 { font-size: 3.750em; } }
-            @media all and (max-width: @responsive-sm) { h1 { font-size: 2em; } }
+            @media all and (max-width: @responsive-sm) { h1 { font-size: 1.5em; } }
         }
         span {
             display: block;
@@ -844,7 +844,8 @@ blockquote {
         }
     }
     h3 { font-size: 2em; }
-    @media all and (max-width: @responsive-xs) {
+    @media all and (max-width: @responsive-md) {
+        h1,h2,h3,h4,h5,h6 { font-size: 1.5em; }
         h1 em { font-size: 1.125em; }
     }
 }
