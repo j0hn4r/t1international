@@ -830,7 +830,7 @@ blockquote {
         .poster-callout-content {
             .absolute-center;
             width: 80vw;
-            max-width: 720px;
+            max-width: 800px;
         }
     }
     h1 + h1 { margin-top: 0.75em; }
@@ -847,6 +847,15 @@ blockquote {
     @media all and (max-width: @responsive-md) {
         h1,h2,h3,h4,h5,h6 { font-size: 1.5em; }
         h1 em { font-size: 1.125em; }
+    }
+}
+
+.glitter_page_blocktype_videobanner .poster-callout {
+    height: 45vh;
+    max-height: 480px;
+    min-height: 200px;
+    @media all and (max-width: @responsive-md) {
+        height: 310px;
     }
 }
 
