@@ -493,9 +493,9 @@ input[type="submit"], .glitter_page_blocktype_contactformblock button[type="subm
             text-decoration: none;
             color: #fff;
             padding: 0 0.5em;
-            &.active, &:hover {
-                color: @blue;
-            }
+        }
+        &.active, &:hover {
+            a { color: @blue; }
         }
         &:not(:first-of-type) {
             border-left: 2px solid darken(@dark,10%);
