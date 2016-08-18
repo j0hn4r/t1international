@@ -829,8 +829,10 @@ blockquote {
         }
         .poster-callout-content {
             .absolute-center;
-            width: 80vw;
+            width: 100%;
             max-width: 800px;
+            box-sizing: border-box;
+            padding: 0 1rem;
         }
     }
     h1 + h1 { margin-top: 0.75em; }
@@ -852,8 +854,8 @@ blockquote {
 
 .glitter_page_blocktype_videobanner .poster-callout {
     height: 45vh;
-    max-height: 480px;
-    min-height: 200px;
+    max-height: 540px;
+    min-height: 400px;
     @media all and (max-width: @responsive-sm) {
         height: 310px;
     }
