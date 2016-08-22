@@ -1,0 +1,5 @@
+#!/bin/bash
+
+. /home/t1icharity/.bash_env
+
+LD_LIBRARY_PATH=/home/t1icharity/webapps/t1international/apache2/lib:/home/t1icharity/webapps/t1international/lib /home/t1icharity/webapps/t1international/apache2/bin/httpd.worker -f /home/t1icharity/webapps/t1international/apache2/conf/httpd.conf -k start

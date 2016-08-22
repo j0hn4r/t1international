@@ -2,11 +2,15 @@
 
 import random
 
-from fabric.api import cd, env, execute, local, parallel, roles, run, runs_once, task
+from fabric.api import cd, env, execute, local, parallel, put, roles, run, runs_once, task
+from fabric.context_managers import shell_env
 from fabric.contrib.files import exists
 
 # Changable settings
 env.roledefs = {
+    'webfaction': [
+        't1icharity@web528.webfaction.com',
+    ],
     'web': [
         't1international@scorch.blanctools.com',
         't1international@smaug.blanctools.com',
@@ -207,3 +211,48 @@ def get_media(directory=''):
         'aws s3 sync '
         's3://contentfiles-media-eu-west-1/{media}/{directory} '
         'htdocs/media/{directory}').format(media=env.media, directory=directory))
+
+
+@task
+@roles('webfaction')
+def deploy_webfaction():
+    """
+    Deploy to webfaction.
+
+    An entirely different set of commands due to an entirely different setup.
+    """
+    webapp_dir = '/home/t1icharity/webapps/t1international'
+    env.home = '{}/t1international'.format(webapp_dir)
+
+    if not exists(env.home):
+        run('mkdir {}'.format(env.home))
+
+    with cd(env.home):
+        # Update git
+        if not exists('.git'):
+            git_repo = GIT_REMOTE.format(env=env)
+            run('git clone --quiet --recursive {} .'.format(git_repo))
+        else:
+            run('git pull')
+
+        put('webfaction/httpd.conf', '../apache2/conf/httpd.conf')
+        put('webfaction/apache2-start', '../apache2/bin/start')
+
+        # Install/update packages
+        run('pip3.4 install --user --quiet --requirement requirements/production.txt')
+        run('python3.4 manage.py migrate')
+
+        # Generate CSS locally and upload
+        if not exists('static/css'):
+            run('mkdir static/css')
+
+        local('node_modules/.bin/grunt less:development autoprefixer cssmin')
+        put('static/css/*', 'static/css/')
+
+        # Collect static files
+        run('python3.4 manage.py collectstatic --verbosity=0 --noinput')
+
+        # Force new environment variables with a full stop/start
+        run('../apache2/bin/stop')
+        run('sleep 5')
+        run('../apache2/bin/start')
