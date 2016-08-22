@@ -59,6 +59,7 @@ DEFAULT_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.sites',
+    'django.contrib.redirects',
 ]
 
 
@@ -107,6 +108,7 @@ MIDDLEWARE_CLASSES = [
     'django.contrib.sites.middleware.CurrentSiteMiddleware',
     'glitter.pages.middleware.PageFallbackMiddleware',
     'glitter.middleware.ExceptionMiddleware',
+    'django.contrib.redirects.middleware.RedirectFallbackMiddleware',
 ]
 
 ROOT_URLCONF = 't1international.urls'
