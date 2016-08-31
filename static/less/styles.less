@@ -1074,9 +1074,23 @@ blockquote {
     position: relative;
     color: #fff;
     overflow: hidden;
-    #glitter_column_billboard_top & { overflow: hidden; }
+    #glitter_column_billboard_top &, #glitter_column_sidebar & {
+        position: relative;
+        overflow: hidden;
+        height: auto;
+    }
+    #glitter_column_sidebar & {
+        &.blue { background: @blue; }
+        &.red { background: @red; }
+        &.purple { background: @purple; }
+        &.dark-green { background: @dark-green; }
+        &.green { background: @green; }
+        &.yellow { background: @yellow; }
+        &.color:before { display: none; }
+    }
     .side-col & { overflow: hidden; }
     .billboard-content {
+        position: static;
         display: table-cell;
         height: 100%;
     }
@@ -1100,7 +1114,6 @@ blockquote {
         border-radius: 50%;
         width: 175px;
         height: 175px;
-        position: relative;
         overflow: hidden;
         @media all and (max-width: @responsive-lg) {
             width: 135px;
