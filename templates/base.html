@@ -80,7 +80,7 @@
                 });
                 if($('.glitter_page_blocktype_videobanner').length) {
                     var screen = $(window).width();
-                    if (Modernizr.touchevents && (screen < 1024)) {
+                    if (Modernizr.touchevents && (screen <= 1024)) {
                         $('.glitter_page_blocktype_videobanner').each(function(){
                             $(this).addClass('touch').find('video').remove();
                         });
