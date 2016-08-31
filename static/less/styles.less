@@ -75,8 +75,8 @@ p { line-height: 1.5; }
 .absolute-center {
     position: absolute;
     top: 50%; left: 50%;
-    transform: translateX(-50%) translateY(-50%);
-    -ms-transform: translateX(-50%) translateY(-50%);
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
 }
 
 .hidden {
@@ -657,12 +657,18 @@ body.two-col & {
     ol {
         .remove-list-style;
         position: relative;
+        line-height: 1.5;
         li {
+            margin-bottom: 1em;
+            padding-left: 0.375em;
+            position: relative;
             counter-increment: step-counter;
             &:before {
-                content: counter(step-counter);
+                content: counter(step-counter)'.';
                 color: @blue;
+                font-weight: bold;
                 display: inline;
+                margin-right: 0.75em;
             }
             h4 { display: inline-block; }
         }
