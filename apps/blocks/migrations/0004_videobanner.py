@@ -17,10 +17,11 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='VideoBanner',
             fields=[
-                ('id', models.AutoField(verbose_name='ID', serialize=False, primary_key=True, auto_created=True)),
+                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('content', models.TextField()),
-                ('background_video', glitter.assets.fields.AssetForeignKey(to='glitter_assets.File', null=True, blank=True)),
+                ('background_video', glitter.assets.fields.AssetForeignKey(null=True, to='glitter_assets.File')),
                 ('content_block', models.ForeignKey(editable=False, null=True, to='glitter.ContentBlock')),
+                ('fallback_image', glitter.assets.fields.AssetForeignKey(null=True, to='glitter_assets.Image')),
             ],
             options={
                 'abstract': False,

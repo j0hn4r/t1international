@@ -852,12 +852,17 @@ blockquote {
     }
 }
 
-.glitter_page_blocktype_videobanner .poster-callout {
-    height: 45vh;
-    max-height: 540px;
-    min-height: 400px;
-    @media all and (max-width: @responsive-sm) {
-        height: 310px;
+.glitter_page_blocktype_videobanner {
+    &.touch .fallback-image { display: block; }
+    .poster-callout {
+        height: 45vh;
+        max-height: 540px;
+        min-height: 400px;
+        @media all and (max-width: @responsive-sm) {
+            height: 310px;
+            video { display: none; }
+            .fallback-image { display: block; }
+        }
     }
 }
 

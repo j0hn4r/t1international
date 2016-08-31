@@ -31,6 +31,7 @@
         <!--[if lt IE 9]>
             <script src="{% static 'js/modernizr.js' %}"></script>
         <![endif]-->
+        <script src="{% static 'js/modernizr-touch.min.js' %}"></script>
     </head>
     <body class="{% block body_class %}{% endblock %}">
         {% glitter_startbody %}
@@ -77,6 +78,13 @@
                         $('.secondary').toggleClass('menu-open');
                     }
                 });
+                if($('.glitter_page_blocktype_videobanner').length) {
+                    if (Modernizr.touchevents) {
+                        $('.glitter_page_blocktype_videobanner').each(function(){
+                            $(this).addClass('touch').find('video').remove();
+                        });
+                    }
+                }
             });
         </script>
 
