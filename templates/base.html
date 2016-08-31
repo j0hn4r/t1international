@@ -79,7 +79,8 @@
                     }
                 });
                 if($('.glitter_page_blocktype_videobanner').length) {
-                    if (Modernizr.touchevents) {
+                    var screen = $(window).width();
+                    if (Modernizr.touchevents && (screen < 1024)) {
                         $('.glitter_page_blocktype_videobanner').each(function(){
                             $(this).addClass('touch').find('video').remove();
                         });
