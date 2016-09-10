@@ -1513,6 +1513,18 @@ blockquote {
         width: 100%;
         height: auto;
     }
+    ol {
+        li {
+            padding-left: 30px;
+            &:before {
+                margin-left: -30px;
+                width: 30px;
+            }
+            + li {
+                padding-top: 1em;
+            }
+        }
+    }
 }
 
 .pagination {
